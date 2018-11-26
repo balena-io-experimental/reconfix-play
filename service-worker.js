@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/reconfix-play/precache-manifest.1e16e48bd3b6c8be96e8f7e006b56b3a.js"
+  "/reconfix-play/precache-manifest.7d7a9cb84b5132e3768ab01ecc3fd164.js"
 );
 
 workbox.clientsClaim();
