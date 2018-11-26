@@ -6,9 +6,14 @@ ReactDOM.render(
     <Provider>
         <Box>
             <Flex>
-                <Textarea monospace />
-                <Textarea monospace />
-                <Textarea monospace />
+                <Textarea monospace placeholder="yaml"/>
+                <Textarea monospace placeholder="json schema" />
+                <Textarea monospace placeholder="ui object" />
+            </Flex>
+        </Box>
+        <Box>
+            <Flex>
+                <Textarea monospace placeholder="errors" />
             </Flex>
         </Box>
     </Provider>,
