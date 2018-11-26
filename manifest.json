@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Reconfix playground",
+  "name": "A website to play with reconfix.",
   "icons": [
     {
       "src": "favicon.ico",
