@@ -1,16 +1,26 @@
 version: 2.1
+workflows:
+  version: 2.1
+  publish:
+    jobs:
+      - publish:
+        filters:
+          branches:
+            ignore:
+              - gh-pages
 jobs:
-  build:
+  publish:
     docker:
       - image: circleci/node:10.13.0-browsers
+
 
     steps:
       - checkout
 
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies-
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
 
       - run:
           command: |
