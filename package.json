@@ -4,16 +4,25 @@
     "main": "index.js",
     "scripts": {
         "build": "webpack --config webpack.config.js",
-        "start": "webpack-dev-server"
+        "start": "webpack-dev-server --mode development"
     },
     "author": "Robert Vojta <robert@balena.io>",
     "dependencies": {
-        "balena-temen": "0"
+        "balena-temen": "0",
+        "react": "^16.5.2",
+        "react-dom": "^16.5.2"
     },
     "devDependencies": {
-        "webpack": "^4.16.3",
-        "webpack-cli": "^3.1.0",
-        "webpack-dev-server": "^3.1.5",
-        "copy-webpack-plugin": "^4.5.2"
+        "@babel/cli": "^7.1.0",
+        "@babel/core": "^7.1.0",
+        "@babel/preset-env": "^7.1.0",
+        "@babel/preset-react": "^7.0.0",
+        "babel-loader": "^8.0.2",
+        "copy-webpack-plugin": "^4.5.2",
+        "css-loader": "^1.0.0",
+        "style-loader": "^0.23.0",
+        "webpack": "^4.19.1",
+        "webpack-cli": "^3.1.1",
+        "webpack-dev-server": "^3.1.8"
     }
 }
