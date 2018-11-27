@@ -10,7 +10,8 @@
     "dependencies": {
         "balena-temen": "file:../balena-temen/pkg",
         "react": "^16.5.2",
-        "react-dom": "^16.5.2"
+        "react-dom": "^16.5.2",
+        "rendition": "^4.40.0"
     },
     "devDependencies": {
         "@babel/cli": "^7.1.0",
