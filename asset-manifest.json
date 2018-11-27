@@ -1,11 +1,13 @@
 {
-  "main.js": "/reconfix-play/static/js/main.a4f941b8.chunk.js",
-  "main.js.map": "/reconfix-play/static/js/main.a4f941b8.chunk.js.map",
-  "static/js/1.5ccfeea8.chunk.js": "/reconfix-play/static/js/1.5ccfeea8.chunk.js",
-  "static/js/1.5ccfeea8.chunk.js.map": "/reconfix-play/static/js/1.5ccfeea8.chunk.js.map",
-  "runtime~main.js": "/reconfix-play/static/js/runtime~main.eb736b36.js",
-  "runtime~main.js.map": "/reconfix-play/static/js/runtime~main.eb736b36.js.map",
+  "main.js": "/reconfix-play/static/js/main.9f3e90c5.chunk.js",
+  "main.js.map": "/reconfix-play/static/js/main.9f3e90c5.chunk.js.map",
+  "static/js/1.566812b7.chunk.js": "/reconfix-play/static/js/1.566812b7.chunk.js",
+  "static/js/1.566812b7.chunk.js.map": "/reconfix-play/static/js/1.566812b7.chunk.js.map",
+  "static/js/2.93634186.chunk.js": "/reconfix-play/static/js/2.93634186.chunk.js",
+  "static/js/2.93634186.chunk.js.map": "/reconfix-play/static/js/2.93634186.chunk.js.map",
+  "runtime~main.js": "/reconfix-play/static/js/runtime~main.40b9f254.js",
+  "runtime~main.js.map": "/reconfix-play/static/js/runtime~main.40b9f254.js.map",
   "index.html": "/reconfix-play/index.html",
-  "precache-manifest.e83e69c89f65eaf8da66b2d706b4a8d7.js": "/reconfix-play/precache-manifest.e83e69c89f65eaf8da66b2d706b4a8d7.js",
+  "precache-manifest.c3875584bd4ed4409e6608cdc98beff8.js": "/reconfix-play/precache-manifest.c3875584bd4ed4409e6608cdc98beff8.js",
   "service-worker.js": "/reconfix-play/service-worker.js"
 }
