@@ -8,13 +8,14 @@
     },
     "author": "Robert Vojta <robert@balena.io>",
     "dependencies": {
-        "balena-temen": "0",
+        "balena-temen": "file:../balena-temen/pkg",
         "react": "^16.5.2",
         "react-dom": "^16.5.2"
     },
     "devDependencies": {
         "@babel/cli": "^7.1.0",
         "@babel/core": "^7.1.0",
+        "@babel/plugin-syntax-dynamic-import": "^7.0.0",
         "@babel/preset-env": "^7.1.0",
         "@babel/preset-react": "^7.0.0",
         "babel-loader": "^8.0.2",
