@@ -6,8 +6,8 @@ workflows:
       - publish:
         filters:
           branches:
-            ignore:
-              - gh-pages
+            only:
+              - master
 jobs:
   publish:
     docker:
