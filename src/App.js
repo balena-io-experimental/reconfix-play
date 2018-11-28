@@ -6,7 +6,6 @@ import {Textarea, Box, Flex, Divider, Heading} from 'rendition';
 import * as cdsl from 'balena-cdsl';
 
 const stringify = (value) => JSON.stringify(value, null, 2)
-const parse = (value) => JSON.parse(value)
 
 class App extends Component {
 
@@ -38,19 +37,28 @@ class App extends Component {
     return (
       <Box>
         <Box>
-          <Heading>Play with reconfix</Heading>
+          <Heading>Play with reconfix cdsl</Heading>
         </Box>
         <Divider/>
         <Box>
           <Flex>
-            <Textarea monospace autoRows={true} placeholder="yaml" onInput={ event=> this.evaluate(event.target.value) }/>
-            <Textarea monospace autoRows={true} placeholder="json schema" onChange={ event=> {}} readOnly={true} value={this.state.json_schema}/>
-            <Textarea monospace autoRows={true} placeholder="ui object" onChange={event =>{}} readOnly={true} value={this.state.ui_object} />
+            <Textarea monospace autoRows={true} placeholder="yaml"
+                      onInput={ event=> this.evaluate(event.target.value) }/>
+            <Textarea monospace autoRows={true} readOnly={true} placeholder="json schema"
+                      onChange={ event=> {} }
+                      value={this.state.json_schema}
+            />
+            <Textarea monospace autoRows={true} readOnly={true} placeholder="ui object"
+                      onChange={event =>{} }
+                      value={this.state.ui_object}
+            />
           </Flex>
         </Box>
         <Box>
           <Flex>
-            <Textarea monospace autoRows={true} placeholder="errors" onChange={event=>{}} readOnly={true} value={this.state.errors} />
+            <Textarea monospace autoRows={true} readOnly={true} placeholder="errors"
+                      onChange={ event=>{} }
+                      value={this.state.errors} />
           </Flex>
         </Box>
       </Box>
