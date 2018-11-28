@@ -1,13 +1,19 @@
 import "./App.css";
 
 import React, {Component} from "react";
-import {Button, Box} from 'rendition';
+import {Textarea, Box, Flex} from 'rendition';
+
+import * as temen from 'balena-temen';
 
 class App extends Component {
   render() {
     return (
       <Box my={3} mx={['auto', 15]}>
-        <Button primary emphasized>Click me</Button>
+        <Flex>
+          <Textarea/>
+          <Textarea/>
+          <Textarea/>
+        </Flex>
       </Box>
     );
   }

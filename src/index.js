@@ -1,12 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App.js";
-import {Button, Box, Provider} from 'rendition';
+import {Provider, Box, Button} from 'rendition';
+import asyncComponent from './asyncComponent.js';
 
-import('balena-temen').catch(e => console.error("Error importing `index.js`:", e)).then(temen => console.log(temen.evaluate({"$$eval": "1+3"})));
+const AsyncApp = asyncComponent(() => {
+  return import('./App');
+});
 
 ReactDOM.render(
   <Provider>
-    <App/>
+    <AsyncApp/>
   </Provider>,
   document.getElementById("root"));
