@@ -1,42 +1,43 @@
 {
-    "name": "balena-temen-browser-example",
-    "version": "0.0.1",
-    "main": "index.js",
-    "scripts": {
-        "build": "webpack --config webpack.config.js",
-        "start": "webpack-dev-server --mode development",
-        "predeploy": "npm run build",
-        "deploy": "gh-pages -d dist"
-    },
-    "author": "Robert Vojta <robert@balena.io>",
-    "dependencies": {
-        "balena-temen": "^0.0.22",
-        "gh-pages": "^2.0.1",
-        "react": "^16.5.2",
-        "react-dom": "^16.5.2",
-        "rendition": "^4.40.0"
-    },
-    "devDependencies": {
-        "@babel/cli": "^7.1.0",
-        "@babel/core": "^7.1.0",
-        "@babel/plugin-syntax-dynamic-import": "^7.0.0",
-        "@babel/preset-env": "^7.1.0",
-        "@babel/preset-react": "^7.0.0",
-        "babel-loader": "^8.0.2",
-        "copy-webpack-plugin": "^4.5.2",
-        "css-loader": "^1.0.0",
-        "eslint": "^5.9.0",
-        "eslint-config-standard": "^12.0.0",
-        "eslint-config-standard-react": "^7.0.2",
-        "eslint-plugin-import": "^2.14.0",
-        "eslint-plugin-jsx-a11y": "^6.1.2",
-        "eslint-plugin-node": "^8.0.0",
-        "eslint-plugin-promise": "^4.0.1",
-        "eslint-plugin-react": "^7.11.1",
-        "eslint-plugin-standard": "^4.0.0",
-        "style-loader": "^0.23.0",
-        "webpack": "^4.19.1",
-        "webpack-cli": "^3.1.1",
-        "webpack-dev-server": "^3.1.8"
-    }
+  "name": "balena-temen-browser-example",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "start": "webpack-dev-server --mode development",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "author": "Robert Vojta <robert@balena.io>",
+  "dependencies": {
+    "balena-temen": "^0.0.22",
+    "gh-pages": "^2.0.1",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "rendition": "^4.40.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.1.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.2",
+    "copy-webpack-plugin": "^4.5.2",
+    "css-loader": "^1.0.0",
+    "eslint": "^5.9.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-config-standard-react": "^7.0.2",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "style-loader": "^0.23.0",
+    "webpack": "^4.19.1",
+    "webpack-cli": "^3.1.1",
+    "webpack-dev-server": "^3.1.8",
+    "html-webpack-plugin": "^3.2.0"
+  }
 }

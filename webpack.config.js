@@ -1,4 +1,10 @@
+'use strict'
+const fs = require('fs')
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+const appDirectory = fs.realpathSync(process.cwd())
+const resolveApp = relativePath => path.resolve(appDirectory, relativePath)
 
 module.exports = {
   entry: './src/index.js',
@@ -20,7 +26,11 @@ module.exports = {
 
   output: {
     path: path.resolve(__dirname, 'dist/'),
-    publicPath: '/dist/',
-    filename: 'bundle.js'
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      inject: true,
+      template: resolveApp('public/index.html')
+    })
+  ]
 }
