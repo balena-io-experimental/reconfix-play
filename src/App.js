@@ -50,7 +50,7 @@ class App extends Component {
         </Box>
         <Box>
           <Flex>
-            <Textarea monospace placeholder="errors" readOnly={true} value={this.state.errors} />
+            <Textarea monospace autoRows={true} placeholder="errors" onChange={event=>{}} readOnly={true} value={this.state.errors} />
           </Flex>
         </Box>
       </Box>
