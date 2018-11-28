@@ -29,8 +29,7 @@ module.exports = {
 
   output: {
     path: path.resolve(__dirname, 'dist/'),
-    devtoolModuleFilenameTemplate: info =>
-      path.resolve(info.absoluteResourcePath).replace(/\\/g, '/')
+    devtoolModuleFilenameTemplate: info => '/' + info.resourcePath
   },
   plugins: [
     gitRevisionPlugin,
