@@ -1,7 +1,7 @@
 import "./App.css";
 
 import React, {Component} from "react";
-import {Textarea, Box, Flex, Divider, Heading} from 'rendition';
+import {Box, Flex, Textarea} from 'rendition';
 
 import * as cdsl from 'balena-cdsl';
 
@@ -36,10 +36,6 @@ class App extends Component {
   render() {
     return (
       <Box>
-        <Box>
-          <Heading>Play with reconfix cdsl</Heading>
-        </Box>
-        <Divider/>
         <Box>
           <Flex>
             <Textarea monospace autoRows={true} placeholder="yaml"
