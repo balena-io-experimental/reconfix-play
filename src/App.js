@@ -11,12 +11,23 @@ class App extends Component {
     super();
 
     this.state = {
-      json_schema: ''
+      json_schema: '',
+      errors: ''
     }
   }
 
   evaluate(value) {
-    this.setState({json_schema: value})
+    try {
+      const stringify = (value) => JSON.stringify(value, null, 2)
+      const parse = (value) => JSON.parse(value)
+      const evaluated = stringify( temen.evaluate(parse(value)))
+      this.setState({json_schema: evaluated})
+      this.setState({errors: ''})
+    }
+    catch (e) {
+      this.setState({json_schema: ''})
+      this.setState({errors: e})
+    }
   }
 
   render() {
@@ -35,7 +46,7 @@ class App extends Component {
         </Box>
         <Box>
           <Flex>
-            <Textarea monospace placeholder="errors"/>
+            <Textarea monospace placeholder="errors" readOnly={true} value={this.state.errors} />
           </Flex>
         </Box>
       </Box>
