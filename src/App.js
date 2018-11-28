@@ -17,6 +17,7 @@ class App extends Component {
       ui_object_text: '',
       ui_object: {},
       yaml_text: '',
+      has_error: false,
       errors: ''
     }
 
@@ -42,14 +43,11 @@ class App extends Component {
         ui_object: evaluated.ui_object,
         json_schema_text: stringify(evaluated.json_schema),
         ui_object_text: stringify(evaluated.ui_object),
-        errors: ''
+        has_error: false
       })
     } catch (e) {
       this.setState({
-        json_schema: '',
-        ui_object: '',
-        json_schema_text: '',
-        ui_object_text: '',
+        has_error: true,
         errors: e
       })
     }
@@ -83,24 +81,28 @@ class App extends Component {
         <Box>
           <Box>
             <Flex>
-            <Textarea monospace autoRows={true} readOnly={true} placeholder="errors"
-                      onChange={event => {
-                      }}
-                      value={this.state.errors}/>
+              {this.state.has_error ?
+                <Textarea monospace autoRows={true} readOnly={true} placeholder="errors"
+                          onChange={event => {
+                          }}
+                          value={this.state.errors}/>
+                : null}
             </Flex>
           </Box>
-          <Flex>
+          {!this.state.has_error ?
+            <Flex>
             <Textarea monospace autoRows={true} readOnly={true} placeholder="json schema"
                       onChange={event => {
                       }}
                       value={this.state.json_schema_text}
             />
-            <Textarea monospace autoRows={true} readOnly={true} placeholder="ui object"
-                      onChange={event => {
-                      }}
-                      value={this.state.ui_object_text}
-            />
-          </Flex>
+              <Textarea monospace autoRows={true} readOnly={true} placeholder="ui object"
+                        onChange={event => {
+                        }}
+                        value={this.state.ui_object_text}
+              />
+            </Flex>
+            : null}
         </Box>
         <Divider/>
       </Box>
