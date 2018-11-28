@@ -8,13 +8,14 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
-  "author": "Robert Vojta <robert@balena.io>",
+  "author": "Robert Vojta <robert@balena.io>, Cyryl Płotnicki <cyryl@balena.io>",
   "dependencies": {
+    "balena-cdsl": "^0.2.7",
     "balena-temen": "^0.0.22",
     "gh-pages": "^2.0.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
-    "rendition": "^4.40.0"
+    "rendition": "^4.40.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.0",

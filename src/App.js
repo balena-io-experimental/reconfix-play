@@ -3,7 +3,10 @@ import "./App.css";
 import React, {Component} from "react";
 import {Textarea, Box, Flex, Divider, Heading} from 'rendition';
 
-import * as temen from 'balena-temen';
+import * as cdsl from 'balena-cdsl';
+
+const stringify = (value) => JSON.stringify(value, null, 2)
+const parse = (value) => JSON.parse(value)
 
 class App extends Component {
 
@@ -12,20 +15,21 @@ class App extends Component {
 
     this.state = {
       json_schema: '',
+      ui_object: '',
       errors: ''
     }
   }
 
   evaluate(value) {
     try {
-      const stringify = (value) => JSON.stringify(value, null, 2)
-      const parse = (value) => JSON.parse(value)
-      const evaluated = stringify( temen.evaluate(parse(value)))
-      this.setState({json_schema: evaluated})
+      const evaluated = cdsl.generate_ui(value)
+      this.setState({json_schema: stringify(evaluated.json_schema)})
+      this.setState({ui_object: stringify(evaluated.ui_object)})
       this.setState({errors: ''})
     }
     catch (e) {
       this.setState({json_schema: ''})
+      this.setState({ui_object: ''})
       this.setState({errors: e})
     }
   }
@@ -39,9 +43,9 @@ class App extends Component {
         <Divider/>
         <Box>
           <Flex>
-            <Textarea monospace placeholder="yaml" onInput={ event=> this.evaluate(event.target.value) }/>
-            <Textarea monospace placeholder="json schema" readOnly={true} value={this.state.json_schema}/>
-            <Textarea monospace placeholder="ui object"/>
+            <Textarea monospace autoRows={true} placeholder="yaml" onInput={ event=> this.evaluate(event.target.value) }/>
+            <Textarea monospace autoRows={true} placeholder="json schema" onChange={ event=> {}} readOnly={true} value={this.state.json_schema}/>
+            <Textarea monospace autoRows={true} placeholder="ui object" onChange={event =>{}} readOnly={true} value={this.state.ui_object} />
           </Flex>
         </Box>
         <Box>
