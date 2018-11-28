@@ -11,7 +11,7 @@ ReactDOM.render(
   <Provider>
     <Box>
       <Box>
-        <Heading>Play with reconfix cdsl</Heading>
+        <Heading.h2>Play with reconfix cdsl</Heading.h2>
       </Box>
       <Divider/>
       <App/>
