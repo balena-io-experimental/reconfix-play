@@ -1,25 +1,16 @@
-version: 2.1
-workflows:
-  version: 2.1
-  publish:
-    jobs:
-      - publish:
-        filters:
-          branches:
-            only:
-              - master
+version: 2
 jobs:
-  publish:
+  build:
     docker:
       - image: circleci/node:10.13.0-browsers
-
-
     steps:
       - checkout
-
       - run:
           command: |
             npm install
             git config --global user.email $GH_EMAIL
             git config --global user.name  $GH_NAME
             npm run deploy
+    branches:
+      only:
+        - master
