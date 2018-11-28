@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import {Box, Divider, Heading, Provider} from 'rendition';
-import asyncComponent from './asyncComponent.js';
+import async from './Async.js';
 
-const AsyncApp = asyncComponent(() => {
+const App = async(() => {
   return import('./App');
 });
 
@@ -14,7 +14,7 @@ ReactDOM.render(
         <Heading>Play with reconfix cdsl</Heading>
       </Box>
       <Divider/>
-      <AsyncApp/>
+      <App/>
     </Box>
   </Provider>,
   document.getElementById("root"));
