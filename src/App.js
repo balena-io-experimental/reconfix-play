@@ -99,7 +99,7 @@ class App extends Component {
         {!this.state.has_error ?
           <Box>
             <Heading.h3>Rendered form</Heading.h3>
-            <Form schema={this.state.json_schema} uiSchema={this.state.ui_object}/>
+            <Form schema={this.state.json_schema} uiSchema={this.state.ui_object} hideSubmitButton={true}/>
           </Box>
           : null}
         <Divider/>
