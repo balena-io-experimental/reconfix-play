@@ -124,6 +124,7 @@ class App extends Component {
                     onFormSubmit={event => this.renderFormData(event)}/>
               </Flex>
             </Box>
+            {this.state.formData ?
             <Box>
               <Heading.h4>Form data (dry json)</Heading.h4>
               <Flex>
@@ -133,6 +134,7 @@ class App extends Component {
                           }}/>
               </Flex>
             </Box>
+              : null}
           </Box>
           : null}
         <Divider/>
