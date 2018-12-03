@@ -1,7 +1,8 @@
 import "./App.css";
 
 import React, {Component} from "react";
-import {Box, Divider, Flex, Link, Textarea} from 'rendition';
+import {Box, Divider, Flex, Link, Textarea, Heading} from 'rendition';
+import {Form} from 'rendition/dist/unstable'
 import * as cdsl from 'balena-cdsl';
 
 const stringify = (value) => JSON.stringify(value, null, 2)
@@ -73,9 +74,12 @@ class App extends Component {
         </a>
         <Divider/>
         Documentation:
-        <a href={'https://github.com/balena-io-modules/balena-cdsl/blob/master/docs/SPEC_SUPPORT.md'}>What is supported</a>
+        <a href={'https://github.com/balena-io-modules/balena-cdsl/blob/master/docs/SPEC_SUPPORT.md'}>What is
+          supported</a>
         ,&nbsp;&nbsp;
-        <a href={'https://github.com/balena-io/balena/blob/832f5551127dd8e1e82fa082bea97fc4db81c3ce/specs/configuration-dsl.md'}>DSL specification</a>
+        <a
+          href={'https://github.com/balena-io/balena/blob/832f5551127dd8e1e82fa082bea97fc4db81c3ce/specs/configuration-dsl.md'}>DSL
+          specification</a>
 
         <Divider/>
         <Link href={this.getPermalink()}>
@@ -92,17 +96,24 @@ class App extends Component {
           </Flex>
         </Box>
         <Divider/>
-        <Box>
+        {!this.state.has_error ?
           <Box>
-            <Flex>
-              {this.state.has_error ?
+            <Heading.h3>Rendered form</Heading.h3>
+            <Form schema={this.state.json_schema} uiSchema={this.state.ui_object}/>
+          </Box>
+          : null}
+        <Divider/>
+        <Box>
+          {this.state.has_error ?
+            <Box>
+              <Flex>
                 <Textarea monospace autoRows={true} readOnly={true} placeholder="errors"
                           onChange={event => {
                           }}
                           value={this.state.errors}/>
-                : null}
-            </Flex>
-          </Box>
+              </Flex>
+            </Box>
+            : null}
           {!this.state.has_error ?
             <Flex>
             <Textarea monospace autoRows={true} readOnly={true} placeholder="json schema"
