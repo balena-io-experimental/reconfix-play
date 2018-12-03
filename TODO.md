@@ -1,3 +1,4 @@
+* migrate to balenaCI - needs a new repo type
 * optimize - right now everything is built and deployed in development mode, resulting in ~12MB page :D
 * typescript support -> enable extracting typescript rendition subcomponents
 * find out what would it take to stabilize rendition's `form`

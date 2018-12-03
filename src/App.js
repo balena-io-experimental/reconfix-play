@@ -78,6 +78,14 @@ class App extends Component {
     }
   }
 
+  noTab(event) {
+    const keyCode = event.keyCode || event.which;
+
+    if (keyCode == 9) {
+      event.preventDefault();
+    }
+  }
+
   render() {
     return (
       <Box>
@@ -120,7 +128,7 @@ class App extends Component {
             <Flex>
             <Textarea monospace minRows={12} autoRows={true} maxRows={16} placeholder="yaml"
                       onChange={event => this.evaluate(event.target.value)}
-                      value={this.state.yaml_text}
+                      value={this.state.yaml_text} onKeyDown={ event => this.noTab(event)}
             />
             </Flex>
           </Flex>
