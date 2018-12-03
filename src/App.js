@@ -118,7 +118,7 @@ class App extends Component {
         <Box>
           <Flex flexDirection={'column'}>
             <Flex>
-            <Textarea monospace minRows={12} autoRows={true} placeholder="yaml"
+            <Textarea monospace minRows={12} autoRows={true} maxRows={16} placeholder="yaml"
                       onChange={event => this.evaluate(event.target.value)}
                       value={this.state.yaml_text}
             />
@@ -164,12 +164,12 @@ class App extends Component {
             <Box>
             <Heading.h4>JSON and UI schemas</Heading.h4>
             <Flex>
-            <Textarea monospace autoRows={true} readOnly={true} placeholder="json schema"
+            <Textarea monospace autoRows={true} readOnly={true} maxRows={16} placeholder="json schema"
                       onChange={event => {
                       }}
                       value={this.state.json_schema_text}
             />
-              <Textarea monospace autoRows={true} readOnly={true} placeholder="ui object"
+              <Textarea monospace autoRows={true} readOnly={true} maxRows={16} placeholder="ui object"
                         onChange={event => {
                         }}
                         value={this.state.ui_object_text}
