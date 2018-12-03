@@ -19,22 +19,10 @@ class App extends Component {
       ui_object: {},
       yaml_text: '',
       has_error: false,
+      formData: '',
       errors: ''
     }
 
-  }
-
-  componentDidMount() {
-    try {
-      const params = new URLSearchParams(window.location.search)
-      const encoded = params.get('yaml')
-      if (params && encoded) {
-        const yaml_from_url = decodeURIComponent(encoded)
-        this.evaluate(yaml_from_url)
-      }
-    } catch (e) {
-      console.log(e)
-    }
   }
 
   evaluate(value) {
@@ -56,9 +44,35 @@ class App extends Component {
     }
   }
 
+  componentDidMount() {
+    this.setDataFromUrl()
+  }
+
+  setDataFromUrl() {
+    try {
+      const params = new URLSearchParams(window.location.search)
+      const encoded = params.get('yaml')
+      if (params && encoded) {
+        const yaml_from_url = decodeURIComponent(encoded)
+        this.evaluate(yaml_from_url)
+      }
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
   getPermalink() {
     try {
       return '?yaml=' + encodeURIComponent(this.state.yaml_text)
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  renderFormData(event) {
+    try {
+      const data = event.formData
+      this.setState({formData: stringify(data)})
     } catch (e) {
       console.log(e)
     }
@@ -103,8 +117,22 @@ class App extends Component {
         <Divider/>
         {!this.state.has_error ?
           <Box>
-            <Heading.h3>Rendered form</Heading.h3>
-            <Form schema={this.state.json_schema} uiSchema={this.state.ui_object} hideSubmitButton={true}/>
+            <Box>
+              <Heading.h3>Rendered form</Heading.h3>
+              <Flex>
+              <Form schema={this.state.json_schema} uiSchema={this.state.ui_object}
+                    onFormSubmit={event => this.renderFormData(event)}/>
+              </Flex>
+            </Box>
+            <Box>
+              <Heading.h3>Form data (dry json)</Heading.h3>
+              <Flex>
+                <Textarea monospace autoRows={true} readOnly={true} placeholder={'form data'}
+                          value={this.state.formData}
+                          onChange={event => {
+                          }}/>
+              </Flex>
+            </Box>
           </Box>
           : null}
         <Divider/>
