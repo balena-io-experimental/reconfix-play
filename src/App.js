@@ -93,13 +93,24 @@ class App extends Component {
         </a>
         <Divider/>
         Documentation:
-        <a href={'https://github.com/balena-io-modules/balena-cdsl/blob/master/docs/SPEC_SUPPORT.md'}>What is
-          supported</a>
+        <a href={'https://github.com/balena-io-modules/balena-cdsl/issues/15'}>
+          What is supported
+        </a>
         &nbsp;|&nbsp;
         <a
-          href={'https://github.com/balena-io/balena/blob/832f5551127dd8e1e82fa082bea97fc4db81c3ce/specs/configuration-dsl.md'}>DSL
-          specification</a>
-
+          href={'https://github.com/balena-io/balena/blob/832f5551127dd8e1e82fa082bea97fc4db81c3ce/specs/configuration-dsl.md'}>
+          DSL specification
+        </a>
+        &nbsp;|&nbsp;
+        <a
+          href={'https://github.com/balena-io/balena/blob/63ca3a4b026694750f8d6f4e3eea9792cf344426/specs/configuration-dsl-mapping-extension.md'}>
+          Mapping extensions
+        </a>
+        &nbsp;|&nbsp;
+        <a
+          href={'https://github.com/balena-io/balena/blob/8e9c7c177e8d730484fbfce5c4281d4c7c205565/specs/json-schema-extensions.md'}>
+          JSON Schema extensions
+        </a>
         <Divider/>
         <Link href={this.getPermalink()}>
           permalink
