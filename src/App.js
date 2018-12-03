@@ -25,8 +25,8 @@ class App extends Component {
 
   componentDidMount() {
     try {
-      const params = new URLSearchParams(decodeURIComponent(window.location.search))
-      const yaml_from_url = params.get('yaml')
+      const params = new URLSearchParams(window.location.search)
+      const yaml_from_url = decodeURIComponent(params.get('yaml'))
       if (params && yaml_from_url) {
         this.evaluate(yaml_from_url)
       }
