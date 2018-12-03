@@ -5,8 +5,10 @@ workflows:
       - build:
           filters:
             branches:
-              only: master
-              ignore: gh-pages
+              only:
+                - master
+              ignore:
+                - gh-pages
 
 jobs:
   build:
