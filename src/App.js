@@ -118,14 +118,14 @@ class App extends Component {
         {!this.state.has_error ?
           <Box>
             <Box>
-              <Heading.h3>Rendered form</Heading.h3>
+              <Heading.h4>Rendered form</Heading.h4>
               <Flex>
               <Form schema={this.state.json_schema} uiSchema={this.state.ui_object}
                     onFormSubmit={event => this.renderFormData(event)}/>
               </Flex>
             </Box>
             <Box>
-              <Heading.h3>Form data (dry json)</Heading.h3>
+              <Heading.h4>Form data (dry json)</Heading.h4>
               <Flex>
                 <Textarea monospace autoRows={true} readOnly={true} placeholder={'form data'}
                           value={this.state.formData}
@@ -148,6 +148,8 @@ class App extends Component {
             </Box>
             : null}
           {!this.state.has_error ?
+            <Box>
+            <Heading.h4>JSON and UI schemas</Heading.h4>
             <Flex>
             <Textarea monospace autoRows={true} readOnly={true} placeholder="json schema"
                       onChange={event => {
@@ -160,6 +162,7 @@ class App extends Component {
                         value={this.state.ui_object_text}
               />
             </Flex>
+            </Box>
             : null}
         </Box>
         <Divider/>
