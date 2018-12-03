@@ -26,8 +26,9 @@ class App extends Component {
   componentDidMount() {
     try {
       const params = new URLSearchParams(window.location.search)
-      const yaml_from_url = decodeURIComponent(params.get('yaml'))
-      if (params && yaml_from_url) {
+      const encoded = params.get('yaml')
+      if (params && encoded) {
+        const yaml_from_url = decodeURIComponent(encoded)
         this.evaluate(yaml_from_url)
       }
     } catch (e) {
@@ -71,7 +72,7 @@ class App extends Component {
           balena cli
         </a>
         <Divider/>
-        Documentation: 
+        Documentation:
         <a href={'https://github.com/balena-io-modules/balena-cdsl/blob/master/docs/SPEC_SUPPORT.md'}>What is supported</a>
         ,&nbsp;&nbsp;
         <a href={'https://github.com/balena-io/balena/blob/832f5551127dd8e1e82fa082bea97fc4db81c3ce/specs/configuration-dsl.md'}>DSL specification</a>
