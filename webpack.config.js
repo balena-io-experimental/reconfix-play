@@ -21,9 +21,9 @@ module.exports = {
         options: { presets: ['@babel/env'] }
       },
       {
-        test: /\.tsx?$/,
+        test: /\.(ts|tsx)$/,
         use: 'ts-loader',
-        exclude: /node_modules/
+        exclude: /(node_modules|bower_components)/,
       },
       {
         test: /\.css$/,
