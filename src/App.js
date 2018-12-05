@@ -1,10 +1,11 @@
 import "./App.css";
 
 import React, {Component} from "react";
-import {Box, Divider, Flex, Link, Textarea, Heading} from 'rendition';
+import {Box, Divider, Flex, Heading, Textarea} from 'rendition';
 import {Form} from 'rendition/dist/unstable'
 import * as cdsl from 'balena-cdsl';
 import Links from './Links.tsx'
+import Permalink from "./Permalink.tsx";
 
 
 const stringify = (value) => JSON.stringify(value, null, 2)
@@ -63,13 +64,6 @@ class App extends Component {
     }
   }
 
-  getPermalink() {
-    try {
-      return '?yaml=' + encodeURIComponent(this.state.yaml_text)
-    } catch (e) {
-      console.log(e)
-    }
-  }
 
   renderFormData(event) {
     try {
@@ -93,16 +87,14 @@ class App extends Component {
       <Box>
         <Links/>
         <Divider/>
-        <Link href={this.getPermalink()}>
-          permalink
-        </Link>
+        <Permalink text={this.state.yaml_text}/>
         <Box>
           <Flex flexDirection={'column'}>
             <Flex>
-            <Textarea monospace minRows={12} autoRows={true} maxRows={16} placeholder="yaml"
-                      onChange={event => this.evaluate(event.target.value)}
-                      value={this.state.yaml_text} onKeyDown={ event => this.noTab(event)}
-            />
+			<Textarea monospace minRows={12} autoRows={true} maxRows={16} placeholder="yaml"
+                onChange={event => this.evaluate(event.target.value)}
+                value={this.state.yaml_text} onKeyDown={event => this.noTab(event)}
+      />
             </Flex>
           </Flex>
         </Box>
