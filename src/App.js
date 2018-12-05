@@ -52,7 +52,7 @@ class App extends Component {
   }
 
   setDataFromUrl() {
-    const text = Permalink.decode('yaml');
+    const text = Permalink.decode()
     if(text) {
       this.evaluate(text);
     }

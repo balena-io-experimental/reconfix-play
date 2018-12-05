@@ -2,6 +2,8 @@ import * as React from "react";
 import {Component} from "react";
 import {Box, Flex, Link, Textarea} from 'rendition';
 
+const propertyName = 'yaml'
+
 interface PermalinkProps {
 	text?: string;
 }
@@ -24,13 +26,13 @@ class Permalink extends Component<PermalinkProps, any> {
 
 	getPermalink() {
 		try {
-			return '?yaml=' + encodeURIComponent(this.props.text)
+			return '?'+propertyName+'=' + encodeURIComponent(this.props.text)
 		} catch (e) {
 			console.log(e)
 		}
 	}
 
-	static decode(propertyName: string): string {
+	static decode(): string {
 		try {
 			const params = new URLSearchParams(window.location.search)
 			const encoded = params.get(propertyName)
