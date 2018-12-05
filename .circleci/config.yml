@@ -1,0 +1,12 @@
+version: 2
+jobs:
+  noop:
+    docker:
+      - image: bash:4.4.19
+    steps:
+      - checkout
+workflows:
+  version: 2
+  noop:
+    jobs:
+      - noop
