@@ -1,12 +1,11 @@
-import "./App.css";
+import './App.css'
 
-import React, {Component} from "react";
-import {Box, Divider, Flex, Heading, Textarea} from 'rendition';
-import {Form} from 'rendition/dist/unstable'
-import * as cdsl from 'balena-cdsl';
+import React, { Component } from 'react'
+import { Box, Divider, Flex, Heading, Textarea } from 'rendition'
+import { Form } from 'rendition/dist/unstable'
+import * as cdsl from 'balena-cdsl'
 import Links from './Links.tsx'
-import Permalink from "./Permalink.tsx";
-
+import Permalink from './Permalink.tsx'
 
 const stringify = (value) => JSON.stringify(value, null, 2)
 
@@ -76,6 +75,8 @@ class App extends Component {
     }
   }
 
+  noop(){}
+
   render() {
     return (
       <Box>
@@ -108,8 +109,10 @@ class App extends Component {
               <Flex>
                 <Textarea monospace autoRows={true} readOnly={true} placeholder={'form data'}
                           value={this.state.formData}
-                          onChange={event => {
-                          }}/>
+                          onChange={e=>this.noop(e)}
+                />
+
+
               </Flex>
             </Box>
               : null}
@@ -121,8 +124,7 @@ class App extends Component {
             <Box>
               <Flex>
                 <Textarea monospace autoRows={true} readOnly={true} placeholder="errors"
-                          onChange={event => {
-                          }}
+                          onChange={e=>this.noop(e)}
                           value={this.state.errors}/>
               </Flex>
             </Box>
@@ -132,13 +134,11 @@ class App extends Component {
             <Heading.h4>JSON and UI schemas</Heading.h4>
             <Flex>
             <Textarea monospace autoRows={true} readOnly={true} maxRows={16} placeholder="json schema"
-                      onChange={event => {
-                      }}
+                      onChange={e=>this.noop(e)}
                       value={this.state.json_schema_text}
             />
               <Textarea monospace autoRows={true} readOnly={true} maxRows={16} placeholder="ui object"
-                        onChange={event => {
-                        }}
+                        onChange={e=>this.noop(e)}
                         value={this.state.ui_object_text}
               />
             </Flex>

@@ -1,8 +1,10 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react'
 
 // load given React component asynchronously, needed for WASM
 const asyncComponent = (importComponent) => {
   return class extends Component {
+
+    displayName = importComponent
 
     state = {
       component: null
