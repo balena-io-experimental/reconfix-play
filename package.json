@@ -6,7 +6,7 @@
     "build": "webpack --config webpack.prod.js",
     "start": "webpack-dev-server --config webpack.dev.js",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
+    "deploy": "gh-pages -m 'deploy [ci skip]' -d dist",
     "lint": "eslint --ignore-path .gitignore --ignore-pattern 'webpack.*.js' ."
   },
   "author": "Robert Vojta <robert@balena.io>, Cyryl Płotnicki <cyryl@balena.io>",
