@@ -52,15 +52,9 @@ class App extends Component {
   }
 
   setDataFromUrl() {
-    try {
-      const params = new URLSearchParams(window.location.search)
-      const encoded = params.get('yaml')
-      if (params && encoded) {
-        const yaml_from_url = decodeURIComponent(encoded)
-        this.evaluate(yaml_from_url)
-      }
-    } catch (e) {
-      console.log(e)
+    const text = Permalink.decode('yaml');
+    if(text) {
+      this.evaluate(text);
     }
   }
 

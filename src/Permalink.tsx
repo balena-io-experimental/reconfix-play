@@ -30,6 +30,19 @@ class Permalink extends Component<PermalinkProps, any> {
 		}
 	}
 
+	static decode(propertyName: string): string {
+		try {
+			const params = new URLSearchParams(window.location.search)
+			const encoded = params.get(propertyName)
+			if (params && encoded) {
+				const yaml_from_url = decodeURIComponent(encoded)
+				return yaml_from_url
+			}
+			return null
+		} catch (e) {
+			console.log(e)
+		}
+	}
 }
 
 export default Permalink;
