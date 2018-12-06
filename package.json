@@ -1,6 +1,6 @@
 {
-  "name": "balena-temen-browser-example",
-  "version": "0.0.1",
+  "name": "balena-reconfix-play",
+  "version": "0.1.0",
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.prod.js",

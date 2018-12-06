@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Component } from "react";
-import { Box, Flex, Link, Textarea } from "rendition";
+import { Box, Link } from "rendition";
 
 const propertyName = "yaml";
 
@@ -34,8 +34,7 @@ class Permalink extends Component<PermalinkProps, any> {
       const params = new URLSearchParams(window.location.search);
       const encoded = params.get(propertyName);
       if (params && encoded) {
-        const yaml_from_url = decodeURIComponent(encoded);
-        return yaml_from_url;
+        return decodeURIComponent(encoded);
       }
       return null;
     } catch (e) {
