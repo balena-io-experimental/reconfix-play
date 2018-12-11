@@ -8,6 +8,7 @@ jobs:
       - checkout
       - run:
           command: |
+            nvm use
             npm install
             npm run lint
             npm test
