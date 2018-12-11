@@ -12,7 +12,7 @@ ReactDOM.render(
   <Provider>
     <Box>
       <Box>
-        <Heading.h2>Play with reconfix cdsl</Heading.h2>
+        <Heading.h2>Play with reconfix</Heading.h2>
       </Box>
       <Divider />
       <ErrorBoundary>
