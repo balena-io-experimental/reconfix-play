@@ -80,6 +80,7 @@
     ]
   },
   "jest": {
+    "setupFiles": ["./test-setup.js"],
     "moduleFileExtensions": [
       "ts",
       "tsx",
