@@ -1,3 +1,5 @@
+/* eslint-disable react/require-render-return */
+
 import * as React from "react";
 import { shallow } from "enzyme";
 
@@ -43,3 +45,5 @@ it("throws without boundary - sync", () => {
 it("throws without boundary - async", () => {
   expect(() => shallow(<Thrower />)).toThrow();
 });
+
+/* eslint-enable */
