@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Component } from "react";
 import { Box, Link } from "rendition";
+import { URLSearchParams } from "url";
 
 const propertyName = "yaml";
 

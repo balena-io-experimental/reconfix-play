@@ -16,14 +16,6 @@ const AsyncThrower = async(() => {
   return Thrower;
 });
 
-it("throws without boundary - sync", () => {
-  expect(() => shallow(<AsyncThrower />)).toThrow();
-});
-
-it("throws without boundary - async", () => {
-  expect(() => shallow(<Thrower />)).toThrow();
-});
-
 it("swallows exceptions from sync children", () => {
   const boundary = shallow(
     <ErrorBoundary>
@@ -40,4 +32,14 @@ it("swallows exceptions from async children", () => {
     </ErrorBoundary>
   );
   expect(boundary).toExist();
+});
+
+// sanity checks
+
+it("throws without boundary - sync", () => {
+  expect(() => shallow(<AsyncThrower />)).toThrow();
+});
+
+it("throws without boundary - async", () => {
+  expect(() => shallow(<Thrower />)).toThrow();
 });

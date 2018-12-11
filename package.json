@@ -81,7 +81,9 @@
   },
   "jest": {
     "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
-    "setupFiles": ["./test-setup.js"],
+    "setupFiles": [
+      "./test-setup.js"
+    ],
     "moduleFileExtensions": [
       "ts",
       "tsx",
