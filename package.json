@@ -12,12 +12,16 @@
   },
   "author": "Robert Vojta <robert@balena.io>, Cyryl Płotnicki <cyryl@balena.io>",
   "dependencies": {
+    "@types/react": "^16.7.13",
+    "@types/react-dom": "^16.0.11",
+    "awesome-typescript-loader": "^5.2.1",
     "balena-cdsl": "^0.2.7",
     "balena-temen": "^0.0.22",
     "gh-pages": "^2.0.1",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
-    "rendition": "^4.40.2"
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "rendition": "^4.40.2",
+    "source-map-loader": "^0.2.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.0",
@@ -57,9 +61,10 @@
     "react-test-renderer": "^16.6.3",
     "regenerator-runtime": "^0.13.1",
     "style-loader": "^0.23.0",
+    "ts-jest": "^23.10.5",
     "ts-loader": "^5.3.1",
-    "typescript": "^3.2.1",
-    "webpack": "^4.27.0",
+    "typescript": "^3.2.2",
+    "webpack": "^4.27.1",
     "webpack-cli": "^3.1.1",
     "webpack-dev-server": "^3.1.8",
     "webpack-merge": "^4.1.4"
@@ -75,6 +80,16 @@
     ]
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js"
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx|js)$": "ts-jest"
+    },
+    "testMatch": [
+      "**/__tests__/*.(ts|tsx|js)"
+    ]
   }
 }
