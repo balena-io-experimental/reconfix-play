@@ -6,8 +6,10 @@ jobs:
       - image: circleci/node:10.13.0-browsers
     steps:
       - checkout
+      - run: curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
       - run:
           command: |
+            source "${HOME}/.nvm/nvm.sh"
             nvm use
             npm install
             npm run lint
