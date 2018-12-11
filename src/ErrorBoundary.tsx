@@ -2,7 +2,7 @@ import { ErrorInfo, ReactNode } from "react";
 import * as React from "react";
 
 interface WithChildren {
-  children: ReactNode
+  children: ReactNode;
 }
 
 class ErrorBoundary extends React.Component<WithChildren> {
@@ -10,7 +10,7 @@ class ErrorBoundary extends React.Component<WithChildren> {
     hasError: false
   };
 
-  constructor(props: WithChildren){
+  constructor(props: WithChildren) {
     super(props);
     this.state = { hasError: false };
   }
@@ -20,8 +20,8 @@ class ErrorBoundary extends React.Component<WithChildren> {
   }
 
   componentDidCatch(error: Error, info: ErrorInfo) {
-    console.log("[error boundary] "+ info + error)
-    this.setState({hasError: true})
+    console.log("[error boundary] " + info + error);
+    this.setState({ hasError: true });
   }
 
   render() {
