@@ -27,8 +27,8 @@ it("swallows exceptions from sync children", () => {
   expect(boundary.contains(<h1>Something went wrong.</h1>)).toBe(true);
 });
 
-it("swallows exceptions from async children", () => {
-  const boundary = mount(
+it("swallows exceptions from async children", async () => {
+  const boundary = await mount(
     <ErrorBoundary>
       <AsyncThrower />
     </ErrorBoundary>
