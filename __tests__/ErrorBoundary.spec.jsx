@@ -1,10 +1,10 @@
 /* eslint-disable react/require-render-return */
 
 import * as React from "react";
+import { Component } from "react";
 import { shallow, mount } from "enzyme";
 
 import ErrorBoundary from "../src/ErrorBoundary.tsx";
-import { Component } from "react";
 
 import async from "../src/Async.js";
 
