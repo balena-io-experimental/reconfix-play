@@ -1,6 +1,6 @@
 // error with imports
 import * as React from "react";
-import { mount } from "enzyme";
+import { shallow } from "enzyme";
 import { Link } from "rendition";
 
 import Permalink from "../src/Permalink.tsx";
@@ -18,6 +18,6 @@ it("decodes text from the url", () => {
 });
 
 it("encodes text in the url", () => {
-  const permalink = mount(<Permalink text={"some text"} />);
+  const permalink = shallow(<Permalink text={"some text"} />);
   expect(permalink.contains(<Link href={'?yaml=some%20text'} >permalink</Link>)).toBe(true);
 });
