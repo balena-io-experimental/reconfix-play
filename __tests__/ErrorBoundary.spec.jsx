@@ -1,7 +1,7 @@
 /* eslint-disable react/require-render-return */
 
 import * as React from "react";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 
 import ErrorBoundary from "../src/ErrorBoundary.tsx";
 import { Component } from "react";
@@ -10,7 +10,7 @@ import async from "../src/Async.js";
 
 class Thrower extends Component {
   render() {
-    throw "failure from the component";
+    throw "test failure from the component";
   }
 }
 
@@ -19,30 +19,30 @@ const AsyncThrower = async(() => {
 });
 
 it("swallows exceptions from sync children", () => {
-  const boundary = shallow(
+  const boundary = mount(
     <ErrorBoundary>
       <Thrower />
     </ErrorBoundary>
   );
-  expect(boundary).toExist();
+  expect(boundary.contains(<h1>Something went wrong.</h1>)).toBe(true);
 });
 
 it("swallows exceptions from async children", () => {
-  const boundary = shallow(
+  const boundary = mount(
     <ErrorBoundary>
       <AsyncThrower />
     </ErrorBoundary>
   );
-  expect(boundary).toExist();
+  expect(boundary.contains(<h1>Something went wrong.</h1>)).toBe(true);
 });
 
 // sanity checks
 
-it("throws without boundary - sync", () => {
-  expect(() => shallow(<AsyncThrower />)).toThrow();
+it("throws without boundary - async", () => {
+  expect(() => mount(<AsyncThrower />)).toThrow();
 });
 
-it("throws without boundary - async", () => {
+it("throws without boundary - sync", () => {
   expect(() => shallow(<Thrower />)).toThrow();
 });
 
