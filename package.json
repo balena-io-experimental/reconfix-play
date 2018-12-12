@@ -8,7 +8,11 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -m 'deploy [ci skip]' -d dist",
     "lint": "eslint --ignore-path .gitignore --ignore-pattern 'webpack.*.js' .",
-    "test": "jest"
+    "test": "jest",
+    "watch": "npm-watch"
+  },
+  "watch": {
+    "test": "__tests__"
   },
   "author": "Robert Vojta <robert@balena.io>, Cyryl Płotnicki <cyryl@balena.io>",
   "dependencies": {
@@ -57,6 +61,7 @@
     "interpolate-html-plugin": "^3.0.0",
     "jest": "^23.6.0",
     "jest-enzyme": "^7.0.1",
+    "npm-watch": "^0.5.0",
     "prettier": "1.15.3",
     "react-test-renderer": "^16.6.3",
     "regenerator-runtime": "^0.13.1",
@@ -87,13 +92,14 @@
     "moduleFileExtensions": [
       "ts",
       "tsx",
-      "js"
+      "js",
+      "jsx"
     ],
     "transform": {
-      "^.+\\.(ts|tsx|js)$": "ts-jest"
+      "^.+\\.(ts|tsx|js|jsx)$": "ts-jest"
     },
     "testMatch": [
-      "**/__tests__/*.(ts|tsx|js)"
+      "**/__tests__/*.(ts|tsx|js|jsx)"
     ]
   }
 }
