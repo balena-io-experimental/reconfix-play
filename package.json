@@ -8,8 +8,8 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -m 'deploy [ci skip]' -d dist",
     "lint": "eslint --ignore-path .gitignore --ignore-pattern 'webpack.*.js' .",
-    "test": "jest --verbose",
-    "watch": "jest --watchAll"
+    "test": "jest --silent",
+    "watch": "jest --silent --watchAll"
   },
   "author": "Robert Vojta <robert@balena.io>, Cyryl Płotnicki <cyryl@balena.io>",
   "dependencies": {
