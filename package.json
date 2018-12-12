@@ -9,7 +9,7 @@
     "deploy": "gh-pages -m 'deploy [ci skip]' -d dist",
     "lint": "eslint --ignore-path .gitignore --ignore-pattern 'webpack.*.js' .",
     "test": "jest --verbose",
-    "watch": "jest verbose --watchAll"
+    "watch": "jest --watchAll"
   },
   "author": "Robert Vojta <robert@balena.io>, Cyryl Płotnicki <cyryl@balena.io>",
   "dependencies": {
@@ -94,7 +94,8 @@
       "ts",
       "tsx",
       "js",
-      "jsx"
+      "jsx",
+      "json"
     ],
     "transform": {
       "^.+\\.(ts|tsx|js|jsx)$": "ts-jest"
