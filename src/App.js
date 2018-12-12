@@ -1,5 +1,3 @@
-import "./App.css";
-
 import React, { Component } from "react";
 import { Box, Divider, Flex, Heading, Textarea } from "rendition";
 import { Form } from "rendition/dist/unstable";
