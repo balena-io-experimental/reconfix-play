@@ -61,6 +61,7 @@
     "jest": "^23.6.0",
     "jest-enzyme": "^7.0.1",
     "prettier": "1.15.3",
+    "puppeteer": "^1.11.0",
     "react-test-renderer": "^16.6.3",
     "regenerator-runtime": "^0.13.1",
     "start-server-and-test": "^1.7.11",
