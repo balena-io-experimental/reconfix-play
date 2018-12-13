@@ -8,9 +8,9 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -m 'deploy [ci skip]' -d dist",
     "lint": "eslint --ignore-path .gitignore --ignore-pattern 'webpack.*.js' .",
-    "test": "jest --silent --verbose __tests__/components",
-    "e2e-no-server": "jest --verbose --detectOpenHandles __tests__/e2e",
-    "watch": "jest --silent --verbose --watchAll",
+    "test": "jest --silent --verbose __tests__/components/",
+    "e2e-no-server": "jest --verbose --detectOpenHandles __tests__/e2e/",
+    "watch": "jest --silent --verbose --watchAll __tests__/components/",
     "test-e2e": "start-server-and-test start http-get://localhost:8080 e2e-no-server"
   },
   "author": "Robert Vojta <robert@balena.io>, Cyryl Płotnicki <cyryl@balena.io>",

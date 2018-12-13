@@ -1,24 +1,83 @@
-// non-ui flow of the whole playground
-
-// get dsl (from user - hardcode in the test)
-// get list of targets from dsl - display one entry field per target
-// use yaml dsl to get json schema + ui object - these contain formulas to evaluate
-// render form from json schema + ui object - keep evaluating the dry json on change - display unevaled and evaled ?
-// get final dry json
-// get dsl + dry json and produce targets
-
+// flow of the whole playground, not using real UI components though
+import * as cdsl from "balena-cdsl";
 
 // this represents all of the external balena libraries, no matter whether these are existing libraries or not
 class Reconfix {
+  static getUIForYAMLDSL(dsl) {
+    return cdsl.generate_ui(dsl);
+  }
 
+  static getListOfTargets(dsl){
+    return ['target1', 'target2'];
+  }
 
+  static hydrateTargets(dryJson, dsl) {
+    return {}; //wet json target data
+  }
+
+  static evaluateFormData(unevaluatedDryJson, dsl) {
+    return {} // use temen to evaluate the dry json
+  }
 
 }
 
-// this represent the user of the website and can get you the emulation of that user typing in the text fields
-class FakeUser {
+class PlaygroundUI {
+  static renderTextarea(data) {
 
-  // iterator over keys to press ?
-  // get text of the textfield + one next character
+  }
 
+  static renderListOfTextAreas(list) {
+    // for each item in list -> renderTextArea(item)
+  }
+
+  static renderForm(jsonSchema, uiSchema) {
+  }
+
+  static dsl() {
+    return DSL;
+  }
+
+  static formData(form) {
+    return {}
+  }
+
+  static targetData() {
+    return {
+      'target1': {
+        'wet json field': 'wet json field contents'
+      },
+      'target2': {
+        'wet json field': 'wet json field contents'
+      }
+    }
+  }
 }
+
+it("flows synchronously", () => {
+  const inputTargets = Reconfix.getListOfTargets(PlaygroundUI.dsl());
+  const targetsInputUI = PlaygroundUI.renderListOfTextAreas(inputTargets);
+  const targetData = PlaygroundUI.targetData(targetsInputUI);
+
+  const dslInputUI = PlaygroundUI.renderTextarea(DSL);
+  const ui = Reconfix.getUIForYAMLDSL(DSL);
+  const jsonSchema = ui.json_schema;
+  const uiSchema = ui.ui_object;
+
+  const formUI = PlaygroundUI.renderForm(jsonSchema, uiSchema); //with unevaluated expressions
+  const formData = PlaygroundUI.formData(formUI); //with unevaluated expressions
+
+  const evaluatedFormData = Reconfix.evaluateFormData(formData, DSL);
+  const dryJson = evaluatedFormData;
+  const evaluatedFormDataUI = PlaygroundUI.renderTextarea(evaluatedFormData);
+
+  const outputTargets = Reconfix.hydrateTargets(dryJson, DSL);
+  const outputTargetsUI = PlaygroundUI.renderListOfTextAreas(outputTargets);
+
+});
+
+const DSL = `
+version: 1
+properties: 
+ - a:
+    type: string
+`;
