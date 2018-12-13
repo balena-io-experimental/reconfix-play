@@ -13,7 +13,8 @@ it("fill in yaml from url", async () => {
   console.warn("started new page");
   console.warn("navigating...");
   await page.goto(
-    "http://localhost:8080/?yaml=version%3A 1%0Aproperties%3A%20%0A - a%3A%0A%20%20%20 type%3A string"
+    "http://localhost:8080/?yaml=version%3A 1%0Aproperties%3A%20%0A - a%3A%0A%20%20%20 type%3A string",
+    { waitUntil: "networkidle0" }
   );
   console.warn("navigated");
 
