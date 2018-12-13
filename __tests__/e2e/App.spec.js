@@ -1,6 +1,7 @@
 const puppeteer = require("puppeteer");
 
 it("fill in yaml from url", async () => {
+  jest.setTimeout(300000); // ci is slow...
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto(
