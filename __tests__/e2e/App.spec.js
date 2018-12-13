@@ -1,7 +1,7 @@
 import * as React from "react";
 import { mount } from "enzyme";
 
-import App from '../src/App.js';
+import App from '../../src/App.js';
 
 it("fill in yaml from url", async () => {
   window.history.pushState(
