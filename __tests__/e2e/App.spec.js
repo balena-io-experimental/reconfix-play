@@ -1,9 +1,12 @@
 const puppeteer = require("puppeteer");
 
 it("fill in yaml from url", async () => {
-  jest.setTimeout(300000); // ci is slow...
+  jest.setTimeout(30000); // ci is slow...
   console.warn("starting chrome...");
-  const browser = await puppeteer.launch({headless: true});
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: ["--no-sandbox", "--disable-setuid-sandbox"]
+  });
   console.warn("started chrome");
   console.warn("starting new page...");
   const page = await browser.newPage();
@@ -21,6 +24,6 @@ it("fill in yaml from url", async () => {
   await browser.close();
   console.warn("closed");
 
-  expect(html).toContain('version: 1');
-  expect(html).toContain('type: string');
+  expect(html).toContain("version: 1");
+  expect(html).toContain("type: string");
 });
