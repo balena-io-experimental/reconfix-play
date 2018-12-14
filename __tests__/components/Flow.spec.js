@@ -53,6 +53,7 @@ class PlaygroundUI {
   }
 }
 
+/* eslint no-unused-vars: "off" */
 it("flows synchronously", () => {
   const inputTargets = Reconfix.getListOfTargets(PlaygroundUI.dsl());
   const targetsInputUI = PlaygroundUI.renderListOfTextAreas(inputTargets);
@@ -74,6 +75,10 @@ it("flows synchronously", () => {
   const outputTargetsUI = PlaygroundUI.renderListOfTextAreas(outputTargets);
 
 });
+/* eslint-enable */
+
+// TODO: add flow with validation
+
 
 const DSL = `
 version: 1

@@ -1,4 +1,4 @@
-/* eslint-disable react/require-render-return */
+/* eslint react/require-render-return:off */
 
 import * as React from "react";
 import { Component } from "react";
