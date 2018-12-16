@@ -2,6 +2,7 @@ import * as React from "react";
 import { Component } from "react";
 import { Box, Flex, Heading } from "rendition";
 import Playarea from "./Playarea.tsx";
+import * as temen from "balena-temen";
 
 import { Form } from "rendition/dist/unstable";
 
@@ -19,7 +20,8 @@ class UserUI extends Component {
   renderFormData(event) {
     try {
       const data = event.formData;
-      this.setState({ formData: stringify(data) });
+      const evaluated = temen.evaluate(data);
+      this.setState({ formData: stringify(evaluated) });
     } catch (e) {
       console.log(e);
     }
@@ -34,7 +36,7 @@ class UserUI extends Component {
             <Form
               schema={this.props.jsonSchema}
               uiSchema={this.props.uiSchema}
-              onFormSubmit={event => this.renderFormData(event)}
+              onFormChange={event => this.renderFormData(event)}
             />
           </Flex>
         </Box>
