@@ -1,11 +1,9 @@
 import * as React from "react";
 import { Component } from "react";
-import { Box, Divider, Flex, Txt } from "rendition";
+import { Box, Flex} from "rendition";
 import Playarea from "./Playarea.tsx";
 import * as cdsl from "balena-cdsl";
 import Permalink from "./Permalink.tsx";
-
-const stringify = value => JSON.stringify(value, null, 2);
 
 function noop(_event) {}
 

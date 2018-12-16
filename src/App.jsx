@@ -1,11 +1,10 @@
 import * as React from "react";
 import { Component } from "react";
-import { Box, Divider, Flex, Heading, Textarea } from "rendition";
-import { Form } from "rendition/dist/unstable";
+import { Box, Divider, Flex, Heading } from "rendition";
 import Links from "./Links.tsx";
-import Permalink from "./Permalink.tsx";
 import Playarea from "./Playarea.tsx";
 import DSLEditor from "./DSLEditor.jsx";
+import UserUI from "./UserUI.jsx";
 
 const stringify = value => JSON.stringify(value, null, 2);
 
@@ -23,15 +22,6 @@ class App extends Component {
     };
   }
 
-  renderFormData(event) {
-    try {
-      const data = event.formData;
-      this.setState({ formData: stringify(data) });
-    } catch (e) {
-      console.log(e);
-    }
-  }
-
   noop() {}
 
   onDSLChanged(text, ui) {
@@ -47,7 +37,7 @@ class App extends Component {
   }
 
   onDSLError(error) {
-    this.setState({hasError: true})
+    this.setState({ hasError: true });
   }
 
   render() {
@@ -55,33 +45,16 @@ class App extends Component {
       <Box>
         <Links />
         <Divider />
-        <DSLEditor onChange={(text, ui) => this.onDSLChanged(text, ui)} onError={(error) => this.onDSLError(error)} />
+        <DSLEditor
+          onChange={(text, ui) => this.onDSLChanged(text, ui)}
+          onError={error => this.onDSLError(error)}
+        />
         <Divider />
-          {!this.state.hasError ? (
-          <Box>
-            <Box>
-              <Heading.h4>Rendered form</Heading.h4>
-              <Flex>
-                <Form
-                  schema={this.state.json_schema}
-                  uiSchema={this.state.ui_object}
-                  onFormSubmit={event => this.renderFormData(event)}
-                />
-              </Flex>
-            </Box>
-            {this.state.formData ? (
-              <Box>
-                <Heading.h4>Form data (dry json)</Heading.h4>
-                <Flex>
-                  <Playarea
-                    placeholder={"form data"}
-                    value={this.state.formData}
-                    onChange={e => this.noop(e)}
-                  />
-                </Flex>
-              </Box>
-            ) : null}
-          </Box>
+        {!this.state.hasError ? (
+          <UserUI
+            jsonSchema={this.state.json_schema}
+            uiSchema={this.state.ui_object}
+          />
         ) : null}
         <Divider />
         <Box>
