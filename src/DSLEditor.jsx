@@ -21,20 +21,20 @@ class DSLEditor extends Component {
       const ui = cdsl.generate_ui(value);
       this.onChange(value, ui);
     } catch (e) {
-      this.onError(e)
+      this.onError(e);
     }
   }
 
   onChange(yamlText, ui) {
     this.setState({ hasError: false, form_ui: ui });
-    if(this.props.onChange) {
+    if (this.props.onChange) {
       this.props.onChange(yamlText, ui);
     }
   }
 
   onError(error) {
     this.setState({ hasError: true, error: error });
-    if(this.props.onError) {
+    if (this.props.onError) {
       this.props.onError(error);
     }
   }
@@ -53,15 +53,16 @@ class DSLEditor extends Component {
     return (
       <Box>
         <Permalink text={this.state.yaml_text} />
-        <Playarea
-          placeholder="yaml"
-          onChange={event => this.evaluate(event.target.value)}
-          value={this.state.yaml_text}
-        />
-        { this.state.hasError ?
-          <Playarea value={this.state.error} onChange={(e)=>noop(e)}/>
-          : null
-        }
+        <Flex>
+          <Playarea
+            placeholder="yaml"
+            onChange={event => this.evaluate(event.target.value)}
+            value={this.state.yaml_text}
+          />
+          {this.state.hasError ? (
+            <Playarea value={this.state.error} onChange={e => noop(e)} />
+          ) : null}
+        </Flex>
       </Box>
     );
   }

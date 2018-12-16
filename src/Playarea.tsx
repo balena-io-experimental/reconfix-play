@@ -10,7 +10,6 @@ function noTab(event: React.KeyboardEvent<HTMLElement>) {
 }
 
 const Playarea = (props: TextareaProps) => (
-  <Flex>
     <Textarea
       monospace={true}
       minRows={12}
@@ -19,7 +18,6 @@ const Playarea = (props: TextareaProps) => (
       onKeyDown={event => noTab(event)}
       {...props}
     />
-  </Flex>
 );
 
 export default Playarea;

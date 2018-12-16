@@ -18,9 +18,8 @@ class App extends Component {
       json_schema: {},
       ui_object_text: "",
       ui_object: {},
-      has_error: false,
       formData: "",
-      errors: ""
+      hasError: false
     };
   }
 
@@ -42,8 +41,13 @@ class App extends Component {
       json_schema: ui.json_schema,
       json_schema_text: jsonSchemaText,
       ui_object: ui.ui_object,
-      ui_object_text: uiSchemaText
+      ui_object_text: uiSchemaText,
+      hasError: false
     });
+  }
+
+  onDSLError(error) {
+    this.setState({hasError: true})
   }
 
   render() {
@@ -51,9 +55,9 @@ class App extends Component {
       <Box>
         <Links />
         <Divider />
-        <DSLEditor onChange={(text, ui) => this.onDSLChanged(text, ui)} />
+        <DSLEditor onChange={(text, ui) => this.onDSLChanged(text, ui)} onError={(error) => this.onDSLError(error)} />
         <Divider />
-        {!this.state.has_error ? (
+          {!this.state.hasError ? (
           <Box>
             <Box>
               <Heading.h4>Rendered form</Heading.h4>
@@ -81,7 +85,7 @@ class App extends Component {
         ) : null}
         <Divider />
         <Box>
-          {!this.state.has_error ? (
+          {!this.state.hasError ? (
             <Box>
               <Heading.h4>JSON and UI schemas</Heading.h4>
               <Flex>
