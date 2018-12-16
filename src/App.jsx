@@ -24,7 +24,6 @@ class App extends Component {
     };
   }
 
-
   renderFormData(event) {
     try {
       const data = event.formData;
@@ -36,7 +35,15 @@ class App extends Component {
 
   noop() {}
 
-  onDSLChanged(text, ui){
+  onDSLChanged(text, ui) {
+    const jsonSchemaText = stringify(ui.json_schema);
+    const uiSchemaText = stringify(ui.ui_object);
+    this.setState({
+      json_schema: ui.json_schema,
+      json_schema_text: jsonSchemaText,
+      ui_object: ui.ui_object,
+      ui_object_text: uiSchemaText
+    });
   }
 
   render() {
@@ -44,7 +51,7 @@ class App extends Component {
       <Box>
         <Links />
         <Divider />
-        <DSLEditor onChange={ (text, ui) => this.onDSLChanged(text, ui) }/>
+        <DSLEditor onChange={(text, ui) => this.onDSLChanged(text, ui)} />
         <Divider />
         {!this.state.has_error ? (
           <Box>

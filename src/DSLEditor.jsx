@@ -46,7 +46,7 @@ class DSLEditor extends Component {
   setDataFromUrl() {
     const text = Permalink.decode();
     if (text) {
-      this.setState({ yaml_text: text });
+      this.evaluate(text);
     }
   }
   render() {
