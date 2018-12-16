@@ -5,6 +5,7 @@ import { Form } from "rendition/dist/unstable";
 import * as cdsl from "balena-cdsl";
 import Links from "./Links.tsx";
 import Permalink from "./Permalink.tsx";
+import Playarea from "./Playarea.tsx"
 
 const stringify = value => JSON.stringify(value, null, 2);
 
@@ -82,11 +83,7 @@ class App extends Component {
         <Box>
           <Flex flexDirection={"column"}>
             <Flex>
-              <Textarea
-                monospace
-                minRows={12}
-                autoRows={true}
-                maxRows={16}
+              <Playarea
                 placeholder="yaml"
                 onChange={event => this.evaluate(event.target.value)}
                 value={this.state.yaml_text}
@@ -112,10 +109,7 @@ class App extends Component {
               <Box>
                 <Heading.h4>Form data (dry json)</Heading.h4>
                 <Flex>
-                  <Textarea
-                    monospace
-                    autoRows={true}
-                    readOnly={true}
+                  <Playarea
                     placeholder={"form data"}
                     value={this.state.formData}
                     onChange={e => this.noop(e)}
@@ -130,10 +124,7 @@ class App extends Component {
           {this.state.has_error ? (
             <Box>
               <Flex>
-                <Textarea
-                  monospace
-                  autoRows={true}
-                  readOnly={true}
+                <Playarea
                   placeholder="errors"
                   onChange={e => this.noop(e)}
                   value={this.state.errors}
@@ -145,20 +136,12 @@ class App extends Component {
             <Box>
               <Heading.h4>JSON and UI schemas</Heading.h4>
               <Flex>
-                <Textarea
-                  monospace
-                  autoRows={true}
-                  readOnly={true}
-                  maxRows={16}
+                <Playarea
                   placeholder="json schema"
                   onChange={e => this.noop(e)}
                   value={this.state.json_schema_text}
                 />
-                <Textarea
-                  monospace
-                  autoRows={true}
-                  readOnly={true}
-                  maxRows={16}
+                <Playarea
                   placeholder="ui object"
                   onChange={e => this.noop(e)}
                   value={this.state.ui_object_text}
