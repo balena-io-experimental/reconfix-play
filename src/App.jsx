@@ -18,23 +18,12 @@ class App extends Component {
       json_schema: {},
       ui_object_text: "",
       ui_object: {},
-      yaml_text: "",
       has_error: false,
       formData: "",
       errors: ""
     };
   }
 
-  componentDidMount() {
-    this.setDataFromUrl();
-  }
-
-  setDataFromUrl() {
-    const text = Permalink.decode();
-    if (text) {
-      this.setState({ yaml_text: text });
-    }
-  }
 
   renderFormData(event) {
     try {
@@ -47,13 +36,15 @@ class App extends Component {
 
   noop() {}
 
+  onDSLChanged(text, ui){
+  }
+
   render() {
     return (
       <Box>
         <Links />
         <Divider />
-        <Permalink text={this.state.yaml_text} />
-        <DSLEditor text={this.state.yaml_text} />
+        <DSLEditor onChange={ (text, ui) => this.onDSLChanged(text, ui) }/>
         <Divider />
         {!this.state.has_error ? (
           <Box>
