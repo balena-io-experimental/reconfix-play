@@ -64,13 +64,6 @@ class App extends Component {
     }
   }
 
-  noTab(event) {
-    const keyCode = event.keyCode || event.which;
-
-    if (keyCode == 9) {
-      event.preventDefault();
-    }
-  }
 
   noop() {}
 
@@ -87,7 +80,6 @@ class App extends Component {
                 placeholder="yaml"
                 onChange={event => this.evaluate(event.target.value)}
                 value={this.state.yaml_text}
-                onKeyDown={event => this.noTab(event)}
               />
             </Flex>
           </Flex>
