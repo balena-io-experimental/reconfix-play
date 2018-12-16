@@ -73,6 +73,9 @@ it("flows synchronously", () => {
 });
 /* eslint-enable */
 
+// TODO: cdsl eval support -> should produce schema with '$$eval'
+// TODO: ui where when stuff edited the visible link becomes visually broken, e.g. croseed arrow or something
+
 it("validates", () => {
   // dsl  -> form ui, list of targets - both of those validate internally ?
   try {
