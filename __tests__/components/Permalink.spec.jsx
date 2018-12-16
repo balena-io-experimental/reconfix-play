@@ -2,7 +2,7 @@ import * as React from "react";
 import { shallow } from "enzyme";
 import { Link } from "rendition";
 
-import Permalink from "../../src/Permalink.tsx";
+import Permalink from "../../src/Permalink";
 
 it("works when no text in the url", () => {
   window.history.pushState({}, "", "/");

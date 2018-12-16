@@ -11,6 +11,7 @@ const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 
 module.exports = {
   entry: "./src/index.js",
+  target: 'web',
   module: {
     rules: [
       {

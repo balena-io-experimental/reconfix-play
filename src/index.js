@@ -5,7 +5,7 @@ import async from "./Async.js";
 import ErrorBoundary from "./ErrorBoundary.tsx";
 
 const App = async(() => {
-  return import("./App");
+  return import("./App.jsx");
 });
 
 ReactDOM.render(

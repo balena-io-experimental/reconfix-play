@@ -2,10 +2,10 @@ import * as React from "react";
 import { Component } from "react";
 import { Box, Divider, Flex, Heading, Textarea } from "rendition";
 import { Form } from "rendition/dist/unstable";
-import * as cdsl from "balena-cdsl";
 import Links from "./Links.tsx";
 import Permalink from "./Permalink.tsx";
-import Playarea from "./Playarea.tsx"
+import Playarea from "./Playarea.tsx";
+import DSLEditor from "./DSLEditor.jsx";
 
 const stringify = value => JSON.stringify(value, null, 2);
 
@@ -25,25 +25,6 @@ class App extends Component {
     };
   }
 
-  evaluate(value) {
-    this.setState({ yaml_text: value });
-    try {
-      const evaluated = cdsl.generate_ui(value);
-      this.setState({
-        json_schema: evaluated.json_schema,
-        ui_object: evaluated.ui_object,
-        json_schema_text: stringify(evaluated.json_schema),
-        ui_object_text: stringify(evaluated.ui_object),
-        has_error: false
-      });
-    } catch (e) {
-      this.setState({
-        has_error: true,
-        errors: e
-      });
-    }
-  }
-
   componentDidMount() {
     this.setDataFromUrl();
   }
@@ -51,7 +32,7 @@ class App extends Component {
   setDataFromUrl() {
     const text = Permalink.decode();
     if (text) {
-      this.evaluate(text);
+      this.setState({ yaml_text: text });
     }
   }
 
@@ -64,7 +45,6 @@ class App extends Component {
     }
   }
 
-
   noop() {}
 
   render() {
@@ -73,17 +53,7 @@ class App extends Component {
         <Links />
         <Divider />
         <Permalink text={this.state.yaml_text} />
-        <Box>
-          <Flex flexDirection={"column"}>
-            <Flex>
-              <Playarea
-                placeholder="yaml"
-                onChange={event => this.evaluate(event.target.value)}
-                value={this.state.yaml_text}
-              />
-            </Flex>
-          </Flex>
-        </Box>
+        <DSLEditor text={this.state.yaml_text} />
         <Divider />
         {!this.state.has_error ? (
           <Box>
@@ -113,17 +83,6 @@ class App extends Component {
         ) : null}
         <Divider />
         <Box>
-          {this.state.has_error ? (
-            <Box>
-              <Flex>
-                <Playarea
-                  placeholder="errors"
-                  onChange={e => this.noop(e)}
-                  value={this.state.errors}
-                />
-              </Flex>
-            </Box>
-          ) : null}
           {!this.state.has_error ? (
             <Box>
               <Heading.h4>JSON and UI schemas</Heading.h4>
