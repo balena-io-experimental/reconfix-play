@@ -37,6 +37,7 @@ class UserUI extends Component {
               schema={this.props.jsonSchema}
               uiSchema={this.props.uiSchema}
               onFormChange={event => this.renderFormData(event)}
+              hideSubmitButton={true}
             />
           </Flex>
         </Box>
