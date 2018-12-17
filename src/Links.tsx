@@ -38,7 +38,7 @@ class Links extends Component {
         &nbsp;|&nbsp;
         <a
           href={
-            "https://github.com/balena-io/balena/blob/832f5551127dd8e1e82fa082bea97fc4db81c3ce/specs/configuration-dsl.md"
+            "https://github.com/balena-io/balena/blob/9471e79bcdaa75a567e89b7d3ce4a11979d38485/specs/configuration-dsl.md"
           }
         >
           DSL specification
@@ -46,7 +46,7 @@ class Links extends Component {
         &nbsp;|&nbsp;
         <a
           href={
-            "https://github.com/balena-io/balena/blob/63ca3a4b026694750f8d6f4e3eea9792cf344426/specs/configuration-dsl-mapping-extension.md"
+            "https://github.com/balena-io/balena/blob/614c8f4c3960008f5da7feb63752040287c1f540/specs/configuration-dsl-mapping-extension.md"
           }
         >
           Mapping extensions
