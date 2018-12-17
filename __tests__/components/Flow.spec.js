@@ -1,4 +1,6 @@
 // flow of the whole playground, not using real UI components though
+// tests int this file are only temporary - they serve as a scratchpad for testing reconfix API ideas
+
 import * as cdsl from "balena-cdsl";
 
 // this represents all of the external balena libraries, no matter whether these are existing libraries or not
@@ -75,7 +77,7 @@ it("flows synchronously", () => {
 
 // TODO: cdsl eval support -> should produce schema with '$$eval'
 // TODO: ui where when stuff edited the visible link becomes visually broken, e.g. croseed arrow or something
-
+/* eslint-disable */
 it("validates", () => {
   // dsl  -> form ui, list of targets - both of those validate internally ?
   try {
@@ -106,6 +108,7 @@ it("validates", () => {
   const outputTargets = Reconfix.hydrateTargets(dryJson, DSL);
   const outputTargetsUI = PlaygroundUI.renderListOfTextAreas(outputTargets);
 });
+/* eslint-enable */
 
 const DSL = `
 version: 1
