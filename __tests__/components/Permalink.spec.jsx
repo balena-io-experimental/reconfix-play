@@ -10,15 +10,15 @@ it("works when no text in the url", () => {
   expect(decoded).toBeNull();
 });
 
-it("decodes text from the url", () => {
+it("decodes encoded text from the url", () => {
   const text = "some text"
-  window.history.pushState({}, "", `/?yaml=${Permalink.encode(text)`);
+  window.history.pushState({}, "", '/?yaml=' + Permalink.encode(text));
   const decoded = Permalink.decode();
   expect(decoded).toBe(text);
 });
 
-it("encodes text in the url", () => {
+it("encodes text into the url", () => {
   const text = "some text"
   const permalink = shallow(<Permalink text={text} />);
-  expect(permalink.contains(<Link href={`?yaml=${Permalink.encode(text)}`} >permalink</Link>)).toBe(true);
+  expect(permalink.contains(<Link href={'?yaml=' + Permalink.encode(text)} >permalink</Link>)).toBe(true);
 });
