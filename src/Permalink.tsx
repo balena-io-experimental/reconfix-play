@@ -1,10 +1,10 @@
 import * as React from "react";
 import { Component } from "react";
-import { Box, Link } from "rendition";
+import { Box, Link, DefaultProps } from "rendition";
 
 const propertyName = "yaml";
 
-interface PermalinkProps {
+interface PermalinkProps extends DefaultProps {
   text?: string;
 }
 
@@ -14,19 +14,26 @@ class Permalink extends Component<PermalinkProps, any> {
   }
 
   render(): React.ReactNode {
+    const {
+      children,
+      text,
+      ...props
+    } = this.props
     return (
-      <Box>
-        <Link href={this.getPermalink()}>permalink</Link>
-      </Box>
+      <Link {...props} href={this.getPermalink()}>{children || 'permalink'}</Link>
     );
   }
 
   getPermalink() {
     try {
-      return "?" + propertyName + "=" + encodeURIComponent(this.props.text);
+      return "?" + propertyName + "=" + Permalink.encode(this.props.text);
     } catch (e) {
       console.log(e);
     }
+  }
+
+  static encode(text: string): string {
+    return encodeURIComponent(btoa(text));
   }
 
   static decode(): string {
@@ -34,7 +41,7 @@ class Permalink extends Component<PermalinkProps, any> {
       const params = new URLSearchParams(window.location.search);
       const encoded = params.get(propertyName);
       if (params && encoded) {
-        return decodeURIComponent(encoded);
+        return atob(decodeURIComponent(encoded));
       }
       return null;
     } catch (e) {
