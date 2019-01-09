@@ -11,7 +11,10 @@ const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 
 module.exports = {
   entry: "./src/index.js",
-  target: 'web',
+  target: "web",
+  resolve: {
+    extensions: [".wasm", ".js", ".json", ".jsx", ".ts", ".tsx"]
+  },
   module: {
     rules: [
       {

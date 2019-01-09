@@ -1,9 +1,9 @@
 import * as React from "react";
 import { Component } from "react";
 import { Box, Flex} from "rendition";
-import Playarea from "./Playarea.tsx";
+import Playarea from "./Playarea";
 import * as cdsl from "balena-cdsl";
-import Permalink from "./Permalink.tsx";
+import Permalink from "./Permalink";
 
 function noop(_event) {}
 
@@ -48,6 +48,10 @@ class DSLEditor extends Component {
     }
   }
   render() {
+    console.log(this.state.yaml_text)
+    const b64 = btoa(this.state.yaml_text)
+    console.log(b64)
+    console.log(atob(b64))
     return (
       <Box>
         <Permalink text={this.state.yaml_text} />

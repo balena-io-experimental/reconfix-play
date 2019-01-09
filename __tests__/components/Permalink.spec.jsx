@@ -11,12 +11,14 @@ it("works when no text in the url", () => {
 });
 
 it("decodes text from the url", () => {
-  window.history.pushState({}, "", "/?yaml=sometext");
+  const text = "some text"
+  window.history.pushState({}, "", `/?yaml=${Permalink.encode(text)`);
   const decoded = Permalink.decode();
-  expect(decoded).toBe("sometext");
+  expect(decoded).toBe(text);
 });
 
 it("encodes text in the url", () => {
-  const permalink = shallow(<Permalink text={"some text"} />);
-  expect(permalink.contains(<Link href={'?yaml=some%20text'} >permalink</Link>)).toBe(true);
+  const text = "some text"
+  const permalink = shallow(<Permalink text={text} />);
+  expect(permalink.contains(<Link href={`?yaml=${Permalink.encode(text)}`} >permalink</Link>)).toBe(true);
 });

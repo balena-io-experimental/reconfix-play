@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Component } from "react";
 import { Box, Flex, Heading } from "rendition";
-import Playarea from "./Playarea.tsx";
+import Playarea from "./Playarea";
 import * as temen from "balena-temen";
 
 import { Form } from "rendition/dist/unstable";
@@ -31,7 +31,7 @@ class UserUI extends Component {
     return (
       <Box>
         <Box>
-          <Heading.h4>Rendered form</Heading.h4>
+          <Heading.h4 mb={3}>Rendered form</Heading.h4>
           <Flex>
             <Form
               schema={this.props.jsonSchema}

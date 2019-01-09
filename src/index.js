@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Box, Divider, Heading, Provider } from "rendition";
-import async from "./Async.js";
-import ErrorBoundary from "./ErrorBoundary.tsx";
+import async from "./Async";
+import ErrorBoundary from "./ErrorBoundary";
 
 const App = async(() => {
-  return import("./App.jsx");
+  return import("./App");
 });
 
 ReactDOM.render(
