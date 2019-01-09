@@ -10,7 +10,8 @@ it("fill in yaml from url", async () => {
   const page = await browser.newPage();
 
   await page.goto(
-    "http://localhost:8080/?yaml=version%3A 1%0Aproperties%3A%20%0A - a%3A%0A%20%20%20 type%3A string",
+    // FIXME: use example files to load up examples and test through them instead
+    "http://localhost:8080/?yaml=dmVyc2lvbjogMQpwcm9wZXJ0aWVzOgogLSBhOgogICAgdHlwZTogc3RyaW5nCg%3D%3D",
     { waitUntil: "networkidle0" }
   );
   const html = await page.content();
