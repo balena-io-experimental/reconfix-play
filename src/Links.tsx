@@ -135,6 +135,23 @@ properties:
             default: 10
 `
   },
+  {
+    name: 'formula',
+    yaml: `---
+version: 1
+title: Formula
+properties:
+- host:
+    type: string
+    default: www
+- domain:
+    type: hostname
+    default: example.com
+- fqdn:
+    type: hostname
+    formula: host ~ \`.\` ~ domain
+`
+  }
 ];
 
 class Links extends Component {
