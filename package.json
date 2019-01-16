@@ -15,15 +15,15 @@
   },
   "author": "Robert Vojta <robert@balena.io>, Cyryl Płotnicki <cyryl@balena.io>",
   "dependencies": {
-    "@types/react": "^16.7.18",
+    "@types/react": "^16.7.19",
     "@types/react-dom": "^16.0.11",
     "awesome-typescript-loader": "^5.2.1",
-    "balena-cdsl": "^0.6.8",
+    "balena-cdsl": "^0.6.9",
     "balena-temen": "^0.1.0",
     "gh-pages": "^2.0.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "rendition": "^4.43.1",
+    "rendition": "^4.44.1",
     "source-map-loader": "^0.2.4"
   },
   "devDependencies": {
@@ -44,7 +44,7 @@
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
     "eslint": "^5.12.0",
-    "eslint-config-prettier": "^3.3.0",
+    "eslint-config-prettier": "^3.4.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-config-standard-react": "^7.0.2",
     "eslint-plugin-babel": "^5.3.0",
@@ -69,7 +69,7 @@
     "ts-jest": "^23.10.5",
     "ts-loader": "^5.3.3",
     "typescript": "^3.2.2",
-    "webpack": "^4.28.3",
+    "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.1.14",
     "webpack-merge": "^4.2.1"
