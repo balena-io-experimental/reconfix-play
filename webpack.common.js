@@ -2,10 +2,12 @@
 const fs = require("fs");
 const path = require("path");
 const webpack = require("webpack");
+
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const GitRevisionPlugin = require("git-revision-webpack-plugin");
-const gitRevisionPlugin = new GitRevisionPlugin();
 const InterpolateHtmlPlugin = require("interpolate-html-plugin");
+
+const gitRevisionPlugin = new GitRevisionPlugin();
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 
@@ -13,7 +15,7 @@ module.exports = {
   entry: "./src/index.js",
   target: "web",
   resolve: {
-    extensions: [".wasm", ".js", ".json", ".jsx", ".ts", ".tsx"]
+    extensions: [".wasm", ".js", ".json", ".jsx", ".ts", ".tsx", ".yaml"]
   },
   module: {
     rules: [
@@ -31,6 +33,13 @@ module.exports = {
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader"]
+      },
+      {
+        test: /\.yaml$/,
+        loader: "file-loader",
+        options: {
+          name: '[path][name].[ext]'
+        },
       }
     ]
   },
@@ -49,6 +58,6 @@ module.exports = {
       VERSION: JSON.stringify(gitRevisionPlugin.version()),
       BRANCH: JSON.stringify(gitRevisionPlugin.branch())
     }),
-    new InterpolateHtmlPlugin(HtmlWebpackPlugin, process.env)
+    new InterpolateHtmlPlugin(HtmlWebpackPlugin, process.env),
   ]
 };

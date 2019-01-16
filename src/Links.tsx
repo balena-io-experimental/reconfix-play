@@ -1,176 +1,47 @@
 import * as React from "react";
 import { Component } from "react";
-import { Box, Divider } from "rendition";
+import { Box, Divider, DropDownButton } from "rendition";
 import Permalink from "./Permalink";
+import ExampleLinks from "./ExampleLinks";
 
-const examples = [
-  {
-    name: 'one property',
-    yaml: `version: 1
-properties:
- - a:
-    type: string
-`
-  },
-  {
-    name: 'simple network configuration',
-    yaml: `title: resin-cli demo
-version: 1
-definitions:
-  bootPartition: &BOOT_PARTITION
-    partition: 1
-mapping:
-  targets:
-    config_json:
-      type: file
-      format: json
-      location:
-        << : *BOOT_PARTITION
-        path: /config.json
-    resin_wifi:
-      type: file
-      format: ini
-      location:
-        << : *BOOT_PARTITION
-        path: /system-connections/resin-wifi
-properties:
-  - network:
-      title: Network
-      properties:
-        - ssid:
-            title: Network SSID
-            type: string
-            minLength: 1
-            maxLength: 32
-            mapping:
-              target: resin_wifi
-              path: wifi.ssid
-        - passphrase:
-            title: Network Key
-            type: password
-            minLength: 8
-            mapping:
-              target: resin_wifi
-              path: wifi-security.psk
-      mapping:
-        target: resin_wifi
-        template:
-          connection:
-            type: wifi
-          wifi:
-            hidden: true
-            mode: infrastructure
-          wifi-security:
-            auth-alg: open
-            key-mgmt: wpa-psk
-          ipv4:
-            method: auto
-          ipv6:
-            addr-gen-mode: stable-privacy
-            method: auto
-  - advanced:
-      title: Advanced
-      properties:
-        - hostname:
-            title: Device Hostname
-            type: string
-            mapping:
-              target: config_json
-              path: hostname
-        - persistentLogging:
-            title: Do you want to enable persistent logging?
-            type: boolean
-            default: false
-            mapping:
-              target: config_json
-              path: persistentLogging
-              `
-  },
-  {
-    name: 'advanced network configuration',
-    yaml: `---
-version: 1
-title: ResinOS Technologic TS-4900 Configuration
-properties:
-  - board:
-      title: CPU Cores
-      warning: |-
-        Please make sure to select the correct number of CPU Cores for your device.
-        **Failing to do so will brick your device**.
-      properties:
-        - cores:
-            type: integer
-            default: 1
-            enum:
-              - value: 1
-                title: Single
-              - value: 4
-                title: Quad
-  - network:
-      title: Network Connection
-      properties:
-        - networks:
-            type: array
-            items:
-              title: WiFi Network
-              properties:
-              - ssid:
-                  title: Network SSID
-                  type: string
-              - psk:
-                  title: Network password
-                  type: password
-              warning: |-
-                In order to have usable WiFi connectivity, make sure you have attached
-                a WiFi antenna to your WiFi module.
-  - advanced:
-      title: Advanced
-      collapsed: true
-      properties:
-        - appUpdatePollInterval:
-            title: Application update poll interval
-            help: Check for updates every X minutes
-            type: integer
-            min: 10
-            default: 10
-`
-  },
-  {
-    name: 'formula',
-    yaml: `---
-version: 1
-title: Formula
-properties:
-- host:
-    type: string
-    default: www
-- domain:
-    type: hostname
-    default: example.com
-- fqdn:
-    type: hostname
-    formula: host ~ \`.\` ~ domain
-`
+import ky from "ky";
+
+function importAll(r: any) {
+  return r.keys().map(r);
+}
+
+const exampleFilePaths = importAll(require.context("../examples/", true, /\.(yaml)$/));
+
+interface IHash {
+  [key: string]: string
+}
+
+let allExamples: IHash = {};
+
+interface LinksState {
+  allExamples: IHash
+}
+
+class Links extends Component<any, LinksState> {
+
+  constructor(props: any) {
+    super(props);
+    this.state = { allExamples: {} };
   }
-];
 
-class Links extends Component {
+  componentDidMount(): void {
+    exampleFilePaths.map((path: string) => {
+      ky.get(path).text().then((content) => {
+        allExamples[path] = content;
+      }).then(() => {
+        this.setState({ allExamples: allExamples });
+      });
+    });
+  }
+
   render(): React.ReactNode {
     return (
       <Box>
-        Examples:
-        {examples.map((example, index) => {
-          return (
-            <Permalink
-              mx={2}
-              text={example.yaml}
-              key={index}
-            >
-              {example.name}
-            </Permalink>
-          );
-        })}
-        <Divider />
         Documentation:
         <a href={"https://github.com/balena-io-modules/balena-cdsl/issues/15"}>
           What is supported
@@ -199,6 +70,8 @@ class Links extends Component {
         >
           JSON Schema extensions
         </a>
+        <Divider/>
+        <ExampleLinks examples={this.state.allExamples}/>
       </Box>
     );
   }
