@@ -3,4 +3,4 @@
 
 This is an interactive website where you can play with Reconfix.
 
-
+https://balena-io-playground.github.io/reconfix-play/index.html
