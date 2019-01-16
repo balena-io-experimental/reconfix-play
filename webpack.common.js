@@ -19,14 +19,14 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /(node_modules)/,
         loader: "babel-loader",
         options: { presets: ["@babel/env"] }
       },
       {
         test: /\.(ts|tsx)$/,
         loader: "awesome-typescript-loader",
-        exclude: /(node_modules|bower_components)/
+        exclude: /(node_modules)/
       },
       {
         test: /\.css$/,
