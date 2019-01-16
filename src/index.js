@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Box, Divider, Heading, Provider } from "rendition";
+import { Box, Flex, Divider, Heading, Provider } from "rendition";
 import async from "./Async";
 import ErrorBoundary from "./ErrorBoundary";
 
@@ -11,14 +11,18 @@ const App = async(() => {
 ReactDOM.render(
   <Provider>
     <Box>
-      <Box>
+      <Flex>
         <Heading.h2>Play with reconfix</Heading.h2>
-      </Box>
-      <Divider />
+        <a href="https://circleci.com/gh/balena-io-playground/reconfix-play/tree/master">
+          <img src="https://circleci.com/gh/balena-io-playground/reconfix-play/tree/master.svg?style=svg"/>
+        </a>
+      </Flex>
+      <Divider/>
       <ErrorBoundary>
-        <App />
+        <App/>
       </ErrorBoundary>
     </Box>
-  </Provider>,
+  </Provider>
+  ,
   document.getElementById("root")
 );

@@ -25,8 +25,8 @@ module.exports = {
       },
       {
         test: /\.(ts|tsx)$/,
-        loader: "awesome-typescript-loader",
-        exclude: /(node_modules)/
+        exclude: /(node_modules)/,
+        loader: "awesome-typescript-loader"
       },
       {
         test: /\.css$/,
