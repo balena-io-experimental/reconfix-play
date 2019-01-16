@@ -1,0 +1,34 @@
+# FIXME
+#
+# * min, max, exclusiveMin, exclusiveMax, multipleOf has no effect
+# * why type: number has an up/down arrows in the textfield and type: integer hasn't them?
+version: 1
+title: Number validation
+properties:
+  - minNumber:
+      type: number
+      min: 10
+      description: >-
+        Number >= 10
+  - exclusiveMinNumber:
+      type: number
+      exclusiveMin: 10
+      description: >-
+        Number > 10
+  - maxNumber:
+      type: number
+      max: 10
+      description: >-
+        Number <= 10
+  - exclusiveMaxNumber:
+      type: number
+      exclusiveMax: 10
+      description: >-
+        Number < 10
+  - multipleOfNumber:
+      type: number
+      min: 0
+      max: 100
+      multipleOf: 10
+      description: >-
+        Number >= 0 && <= 100 && multipleOf 10

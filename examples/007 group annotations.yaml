@@ -1,0 +1,29 @@
+# FIXME
+#
+# * collapsed & collapsible has no effect
+version: 1
+title: Annotations
+properties:
+  - group:
+      title: Collapsible group
+      description: >-
+        You should be able to collapse this group.
+      properties:
+        - youShouldSeeMeByDefault:
+            type: string
+  - collapsedGroup:
+      title: Collapsed
+      description: >-
+        This group should be collapsed (inner props not visible).
+      collapsed: true
+      properties:
+        - youShouldNOTSeeMeByDefault:
+            type: string
+  - notCollapsibleGroup:
+      title: Not collapsible group
+      collapsible: false
+      description: >-
+        This group shouldn't be collapsible.
+      properties:
+        - youMustNotBeAbleToHideMe:
+            type: string

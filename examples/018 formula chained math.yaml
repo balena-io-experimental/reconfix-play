@@ -1,0 +1,30 @@
+# FIXME
+#
+# * formula has no effect
+version: 1
+title: Formula chained math
+properties:
+  - input:
+      title: Inputs
+      properties:
+        - x:
+            type: integer
+  - results:
+      title: Results
+      properties:
+        - xx:
+            type: integer
+            formula: input.x * input.x
+            description: x^2
+        - xxx:
+            type: integer
+            formula: results.xx * input.x
+            description: x^3
+        - xxxx:
+            type: integer
+            formula: results.xxx * input.x
+            description: x^4
+        - xxxxx:
+            type: integer
+            formula: results.xxxx * input.x
+            description: x^5

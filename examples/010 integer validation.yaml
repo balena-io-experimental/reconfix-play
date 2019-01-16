@@ -1,0 +1,33 @@
+# FIXME
+#
+# * min, max, exclusiveMin, exclusiveMax, multipleOf has no effect
+version: 1
+title: Integer validation
+properties:
+  - minInteger:
+      type: integer
+      min: 10
+      description: >-
+        Integer >= 10
+  - exclusiveMinInteger:
+      type: integer
+      exclusiveMin: 10
+      description: >-
+        Integer > 10
+  - maxInteger:
+      type: integer
+      max: 10
+      description: >-
+        Integer <= 10
+  - exclusiveMaxInteger:
+      type: integer
+      exclusiveMax: 10
+      description: >-
+        Integer < 10
+  - multipleOfInteger:
+      type: integer
+      min: 0
+      max: 100
+      multipleOf: 10
+      description: >-
+        Integer >= 0 && <= 100 && multipleOf 10

@@ -1,0 +1,19 @@
+# FIXME
+#
+# * formula has no effect
+version: 1
+title: Formula boolean
+properties:
+  - input:
+      title: Inputs
+      properties:
+        - name:
+            type: string
+  - results:
+      title: Results
+      properties:
+        - isCyrylOrLucian:
+            type: boolean
+            formula: input.name == `Cyryl` or input.name == `Lucian`
+            description: >-
+              Checked (true) if name is Cyryl or Lucian

@@ -1,0 +1,18 @@
+# FIXME
+#
+# * formula has no effect
+version: 1
+title: Formula functions
+properties:
+  - randomUuid:
+      type: string
+      formula: uuidv4()
+  - timestamp:
+      type: integer
+      formula: now(timestamp=true)
+  - localDateTime:
+      type: string
+      formula: now()
+  - utcDateTime:
+      type: string
+      formula: now(utc=true)

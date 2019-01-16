@@ -1,0 +1,22 @@
+# FIXME
+#
+# * annotations are not rendered for the root object
+# * description & help doesn't support Markdown
+version: 1
+title: Annotations
+description: >-
+  Showcase of **compound** data types.
+help: >-
+  Root **help**.
+warning: >-
+  Root object _warning_ with a [link](https://www.google.com/).
+properties:
+  - foo:
+      type: string
+      title: Foo title (plain text only)
+      help: >-
+        Foo **help** which should support Markdown.
+      warning: >-
+        Foo **warning** which should support Markdown.
+      description: >-
+        Foo **description** which should support Markdown.

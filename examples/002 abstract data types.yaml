@@ -1,0 +1,70 @@
+# FIXME
+#
+# * most of these types don't work
+# * description, help and warning keywords should support Markdown & plain text rendering
+#   * Markdown isn't rendered
+# * type: port -> type: integer in JSON, not type: number
+#   https://tools.ietf.org/html/draft-handrews-json-schema-validation-01#section-6.1.1
+# * and probably others, there's a lot of errors and thus I didn't mention them all here
+version: 1
+title: Abstract data types
+properties:
+  - typePassword:
+      type: password
+      title: Password
+  - typeHostname:
+      type: hostname
+      title: Hostname
+  - typeDatatime:
+      type: datetime
+      title: Date & time
+  - typeDate:
+      type: date
+      title: Date
+  - typeTime:
+      type: time
+      title: Time
+  - typeEmail:
+      type: email
+      title: Email
+  - typeIpv4:
+      type: ipv4
+      title: IPv4
+  - typeIpv6:
+      type: ipv6
+      title: IPv6
+  - typeUri:
+      type: uri
+      title: URI
+  - typeFile:
+      type: file
+      title: Base64 encoded file data & file name
+  - typePort:
+      type: port
+      title: Integer in 0 - 65535 range
+  - typeText:
+      type: text
+      title: Like string, but multi line where new lines are preserved
+  - typeStringlist:
+      type: stringlist
+      description: >-
+        This is rendered in UI as an array of `items`.
+      separator: ","
+      items:
+        title: Name
+        type: string
+  - typeDnsmasqAddress:
+      type: dnsmasq-address
+      title: DNS masq server
+      description: >-
+        Whatever `server=...` accepts in the dnsmasq.servers file [recipe](https://github.com/balena-os/meta-balena/blob/master/meta-resin-common/recipes-connectivity/resin-net-config/resin-net-config/resin-net-config#L34-L39).
+  - typeChronyAddress:
+      type: chrony-address
+      title: NTP Server
+      description: >-
+        Whatever `/usr/bin/chronyc add server ...` accepts [recipe](https://github.com/balena-os/meta-balena/blob/master/meta-resin-common/recipes-connectivity/resin-ntp-config/resin-ntp-config/resin-ntp-config#L19).
+  - typeIptablesAddress:
+      type: iptables-address
+      title: IP tables address
+      description: >-
+        Whatever `iptables -d ...` accepts [recipe](https://github.com/balena-os/meta-balena/blob/master/meta-resin-common/recipes-connectivity/resin-proxy-config/resin-proxy-config/resin-proxy-config#L66-L73).

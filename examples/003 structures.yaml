@@ -1,0 +1,48 @@
+# FIXME
+#
+# * properties.arrayOfStrings
+#   * allows to add empty items (= nulll), validator is happy
+# * properties.arrayOfMixedItems
+#   * doesn't work -> oneOf
+# * properties.dynamicObject doesn't work
+#   * JSON Schema patternProperties & friends
+version: 1
+title: Structures
+properties:
+  - arrayOfStrings:
+      type: array
+      title: Array of strings
+      items:
+        type: string
+        title: Name
+  - arrayOfMixedItems:
+      type: array
+      title: Array of strings & integers
+      description: >-
+        Any item can be either a string or an integer, but not both!
+        In other words, in JSON Schema, this is `oneOf`.
+      items:
+        - type: string
+          title: Name
+        - type: integer
+          title: Age
+  - fixedObject:
+      title: Person
+      properties:
+        - firstName:
+            title: First name
+            type: string
+        - lastName:
+            title: Last name
+            type: string
+  - dynamicObject:
+      title: Rules
+      description: >-
+        Be aware that `keys:type:` MUST be coercable to string, because JSON
+        only supports strings as keys.
+      keys:
+        type: integer
+        title: Priority
+      values:
+        type: string
+        title: Rule
