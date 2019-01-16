@@ -1,0 +1,21 @@
+# FIXME
+#
+# * minLength, maxLength, pattern has no effect
+version: 1
+title: String validation
+properties:
+  - minLengthString:
+      type: string
+      minLength: 5
+      description: >-
+        String of >= 5 UTF-8 characters
+  - maxLengthString:
+      type: string
+      maxLength: 5
+      description: >-
+        String of <= 5 UTF-8 characters
+  - patternString:
+      type: string
+      pattern: ^\d+$
+      description: >-
+        Any integer number ^\d+$

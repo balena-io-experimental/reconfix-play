@@ -1,0 +1,21 @@
+# FIXME
+#
+# * formula has no effect
+version: 1
+title: Formula string concat
+properties:
+  - input:
+      title: Inputs
+      properties:
+        - first:
+            type: string
+        - last:
+            type: string
+  - results:
+      title: Results
+      properties:
+        - fullName:
+            type: string
+            formula: input.first ~ ` ` ~ input.last
+            description: >-
+              Your full name

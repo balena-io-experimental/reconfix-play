@@ -1,0 +1,38 @@
+# FIXME
+#
+# * properties.nonOrderableArray
+#   * orderable: false has no effect
+# * properties.nonAddableArray
+#   * addable: false has no effect
+# * properties.nonRemovableArray
+#   * removable: false has no effect
+version: 1
+title: Annotations
+properties:
+  - array:
+      type: array
+      description: >-
+        You should be able to add / remove / reorder items.
+      items:
+        type: string
+  - nonOrderableArray:
+      type: array
+      orderable: false
+      description: >-
+        You must not be able to reorder items.
+      items:
+        type: string
+  - nonAddableArray:
+      type: array
+      addable: false
+      description: >-
+        You must not be able to add items.
+      items:
+        type: string
+  - nonRemovableArray:
+      type: array
+      removable: false
+      description: >-
+        You must not be able to remove items.
+      items:
+        type: string

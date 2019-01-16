@@ -1,0 +1,15 @@
+# FIXME
+#
+# * compound types are not supported in the JSON Schema generator
+#   * it should be `anyOf` (not `oneOf` here)
+version: 1
+title: Compound types
+properties:
+  - anyIP:
+      type: [ipv4, ipv6]  # YAML array shorthand syntax (allowed for type)
+      title: Any IP (v4 or v6)
+  - anyIP2:
+      type:  # Regular YAML array syntax, equals to anyIP
+        - ipv4
+        - ipv6
+      title: Any IP (v4 or v6)

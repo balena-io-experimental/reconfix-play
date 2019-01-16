@@ -1,0 +1,42 @@
+# FIXME
+#
+# * `uniqueItems: bool` & `uniqueItems: [path1, path2, ...]` has no effect
+# * it seems that `minItems` & `maxItems` does work, but it's weird as there's
+#   no submit button, probably not validation, just play with it, it's really weird
+#   how it behaves
+version: 1
+title: Array validation
+properties:
+  - minItemsArray:
+      type: array
+      minItems: 2
+      items:
+        type: string
+      description: >-
+        At least 2 items
+  - maxItemsArray:
+      type: array
+      maxItems: 2
+      items:
+        type: string
+      description: >-
+        Up to 2 items
+  - uniqueItemsBoolean:
+      type: array
+      uniqueItems: true
+      items:
+        type: string
+      description: >-
+        Unique items
+  - uniqueItemsPaths:
+      type: array
+      uniqueItems:
+        - ssid
+      items:
+        properties:
+          - ssid:
+              type: string
+          - psk:
+              type: string
+      description: >-
+        Unique ssid only

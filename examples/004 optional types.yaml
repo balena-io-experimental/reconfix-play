@@ -1,0 +1,14 @@
+# FIXME
+#
+# * properties are not ordered
+# * properties.requiredString
+#   * as there's no Submit button, when I see that the validator really requires it?
+version: 1
+title: Optional types
+properties:
+  - requiredString:
+      type: string
+      title: Value must be filled
+  - optionalString:
+      type: string?
+      title: It's ok to skip me

@@ -1,0 +1,49 @@
+# FIXME
+#
+# * properties.readOnly
+#   * readOnly: true has no effect
+# * properties.writeOnly
+#   * to be discussed
+# * properties.hidden
+#   * hidden: true has no effect
+# * properties.constValue
+#   * doesn't work as expected, it displays combo box, ...
+version: 1
+title: Annotations
+properties:
+  - placeholder:
+      type: string
+      placeholder: Type your name
+      description: >-
+        You should see a placeholder in the textfield.
+  - constValue:
+      type: string
+      const: Cyryl
+      description: >-
+        Fixed value.
+  - defaultValue:
+      type: string
+      default: Cyryl
+      description: >-
+        It should be by default filled with `Cyryl`.
+  - readOnly:
+      type: string
+      default: Cyryl
+      readOnly: true
+      description: >-
+        Must not be editable, but visible.
+  - writeOnly:
+      type: string
+      default: Cyryl
+      writeOnly: true
+      description: >-
+        Whenever you receive value in dry JSON, it must be cleared and
+        it must not be displayed to the user.
+
+        Not sure if this should be handled on the reconfix side, probably yes.
+  - hidden:
+      type: string
+      hidden: true
+      description: >-
+        This works as a normal property, but it's hidden from the UI. It can be
+        used as a computation property for example.

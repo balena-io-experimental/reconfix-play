@@ -1,0 +1,22 @@
+# FIXME
+#
+# * properties.typeInteger
+#   * allows to enter 1.2 & validator is happy
+# * properties.typeNumber
+#   * clear it & enter 1.5
+#   * error that I should enter valid value and that two nearest values are 1.5 and 2.5
+version: 1
+title: Primitive types
+properties:
+  - typeBoolean:
+      type: boolean
+      title: Boolean
+  - typeString:
+      type: string
+      title: String
+  - typeInteger:
+      type: integer
+      title: Number without a decimal point (integer)
+  - typeNumber:
+      type: number
+      title: Number with (float) or without a decimal point (integer)

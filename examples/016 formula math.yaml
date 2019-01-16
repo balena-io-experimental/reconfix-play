@@ -1,0 +1,36 @@
+# FIXME
+#
+# * formula has no effect
+version: 1
+title: Formula math
+properties:
+  - input:
+      title: Inputs
+      properties:
+        - x:
+            type: integer
+            description: >-
+              Enter some integer here
+        - y:
+            type: integer
+            description: >-
+              Enter some integer here
+  - results:
+      title: Results
+      properties:
+        - addition:
+            type: integer
+            formula: input.x + input.y
+            description: x + y
+        - multiplication:
+            type: integer
+            formula: input.x * input.y
+            description: x * y
+        - division:
+            type: integer
+            formula: input.x / input.y
+            description: x / y
+        - subtraction:
+            type: integer
+            formula: input.x - input.y
+            description: x - y

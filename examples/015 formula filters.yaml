@@ -1,0 +1,36 @@
+# FIXME
+#
+# * formula has no effect
+version: 1
+title: Formula filters
+properties:
+  - input:
+      title: Input
+      properties:
+        - text:
+            type: string
+            description: >-
+              Enter some string here
+  - results:
+      title: Results
+      properties:
+        - lowerText:
+            type: string
+            formula: input.text | lower
+            description: >-
+              Lower cased text
+        - upperText:
+            type: string
+            formula: input.text | upper
+            description: >-
+              Upper cased text
+        - trimText:
+            type: string
+            formula: input.text | trim
+            description: >-
+              Trimmed text
+        - chainedFilter:
+            type: string
+            formula: input.text | trim | slugify
+            description: >-
+              Trimmed & slugified text
