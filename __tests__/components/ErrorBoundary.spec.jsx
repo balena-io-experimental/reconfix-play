@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { Component } from "react";
-import { shallow, mount } from "enzyme";
+import { mount, shallow } from "enzyme";
 
 import ErrorBoundary from "../../src/ErrorBoundary";
 

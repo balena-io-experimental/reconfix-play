@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Component } from "react";
-import { Box, Link, DefaultProps } from "rendition";
+import { DefaultProps, Link } from "rendition";
 
 const propertyName = "yaml";
 
@@ -11,25 +11,6 @@ interface PermalinkProps extends DefaultProps {
 class Permalink extends Component<PermalinkProps, any> {
   constructor(props: PermalinkProps) {
     super(props);
-  }
-
-  render(): React.ReactNode {
-    const {
-      children,
-      text,
-      ...props
-    } = this.props
-    return (
-      <Link {...props} href={this.getPermalink()}>{children || 'permalink'}</Link>
-    );
-  }
-
-  getPermalink() {
-    try {
-      return "?" + propertyName + "=" + Permalink.encode(this.props.text);
-    } catch (e) {
-      console.log(e);
-    }
   }
 
   static encode(text: string): string {
@@ -44,6 +25,25 @@ class Permalink extends Component<PermalinkProps, any> {
         return atob(decodeURIComponent(encoded));
       }
       return null;
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  render(): React.ReactNode {
+    const {
+      children,
+      text,
+      ...props
+    } = this.props;
+    return (
+      <Link {...props} href={this.getPermalink()}>{children || "permalink"}</Link>
+    );
+  }
+
+  getPermalink() {
+    try {
+      return "?" + propertyName + "=" + Permalink.encode(this.props.text);
     } catch (e) {
       console.log(e);
     }

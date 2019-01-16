@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Flex, Textarea, TextareaProps } from "rendition";
+import { Textarea, TextareaProps } from "rendition";
 
 function noTab(event: React.KeyboardEvent<HTMLElement>) {
   const keyCode = event.keyCode || event.which;
@@ -10,14 +10,14 @@ function noTab(event: React.KeyboardEvent<HTMLElement>) {
 }
 
 const Playarea = (props: TextareaProps) => (
-    <Textarea
-      monospace={true}
-      minRows={12}
-      autoRows={true}
-      maxRows={16}
-      onKeyDown={event => noTab(event)}
-      {...props}
-    />
+  <Textarea
+    monospace={true}
+    minRows={12}
+    autoRows={true}
+    maxRows={16}
+    onKeyDown={event => noTab(event)}
+    {...props}
+  />
 );
 
 export default Playarea;

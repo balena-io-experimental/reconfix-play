@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Box, Flex, Divider, Heading, Provider } from "rendition";
+import { Box, Divider, Flex, Heading, Provider } from "rendition";
 import async from "./Async";
 import ErrorBoundary from "./ErrorBoundary";
 

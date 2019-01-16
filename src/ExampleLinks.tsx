@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Component } from "react";
-import { Box, Divider, DropDownButton } from "rendition";
+import { DropDownButton } from "rendition";
 import Permalink from "./Permalink";
 
 
@@ -21,21 +21,21 @@ class ExampleLinks extends Component<ExampleLinksProps, any> {
   render(): React.ReactNode {
     const examples = this.props.examples;
     return (
-      <Box>
+      <DropDownButton joined={true} label={<div>Examples</div>}>
         {
-          Object.keys(examples).map(function(key, index) {
+          Object.keys(examples).sort().map(function(key, index) {
             return (
-                <Permalink
-                  mx={2}
-                  text={examples[key]}
-                  key={index}
-                >
-                  {key}
-                </Permalink>
+              <Permalink
+                mx={2}
+                text={examples[key]}
+                key={index}
+              >
+                {key}
+              </Permalink>
             );
           })
         }
-      </Box>
+      </DropDownButton>
     );
   }
 }

@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Component } from "react";
-import { Box, Divider, DropDownButton } from "rendition";
-import Permalink from "./Permalink";
+import { Box, Divider } from "rendition";
 import ExampleLinks from "./ExampleLinks";
 
 import ky from "ky";
@@ -10,7 +9,7 @@ function importAll(r: any) {
   return r.keys().map(r);
 }
 
-const exampleFilePaths = importAll(require.context("../examples/", true, /\.(yaml)$/));
+const exampleFilePaths = importAll(require.context("../examples", true, /\.(yaml)$/));
 
 interface IHash {
   [key: string]: string
@@ -32,7 +31,8 @@ class Links extends Component<any, LinksState> {
   componentDidMount(): void {
     exampleFilePaths.map((path: string) => {
       ky.get(path).text().then((content) => {
-        allExamples[path] = content;
+        const name = path.replace("examples/", "");
+        allExamples[name] = content;
       }).then(() => {
         this.setState({ allExamples: allExamples });
       });
