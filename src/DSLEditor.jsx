@@ -48,10 +48,7 @@ class DSLEditor extends Component {
     }
   }
   render() {
-    console.log(this.state.yaml_text)
     const b64 = btoa(this.state.yaml_text)
-    console.log(b64)
-    console.log(atob(b64))
     return (
       <Box>
         <Permalink text={this.state.yaml_text} />
