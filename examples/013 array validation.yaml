@@ -1,9 +1,12 @@
 # FIXME
 #
 # * `uniqueItems: bool` & `uniqueItems: [path1, path2, ...]` has no effect
-# * it seems that `minItems` & `maxItems` does work, but it's weird as there's
+# * (BETTER WITH SUBMIT BUTTON) it seems that `minItems` & `maxItems` does work, but it's weird as there's
 #   no submit button, probably not validation, just play with it, it's really weird
-#   how it behaves
+#   how it behaves - with submit button there is still one UI inconsistency - it does allow you to remove the
+#   items beloew `minItems` limit - but maybe it's okay as it may be easier for people to remove and add
+#   than to fix, sometimes ?
+
 version: 1
 title: Array validation
 properties:
