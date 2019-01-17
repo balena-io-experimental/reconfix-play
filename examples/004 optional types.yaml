@@ -1,8 +1,8 @@
 # FIXME
 #
 # * properties are not ordered
-# * properties.requiredString
-#   * as there's no Submit button, when I see that the validator really requires it?
+# * (FIXED) properties.requiredString
+#   * (FIXED) as there's no Submit button, when I see that the validator really requires it?
 version: 1
 title: Optional types
 properties:

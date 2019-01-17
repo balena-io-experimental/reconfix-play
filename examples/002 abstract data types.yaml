@@ -3,7 +3,8 @@
 # * most of these types don't work
 # * description, help and warning keywords should support Markdown & plain text rendering
 #   * Markdown isn't rendered
-# * type: port -> type: integer in JSON, not type: number
+# * (FIXED) type: port -> type: integer in JSON, not type: number
+# * (FIXED) support for file type
 #   https://tools.ietf.org/html/draft-handrews-json-schema-validation-01#section-6.1.1
 # * and probably others, there's a lot of errors and thus I didn't mention them all here
 version: 1
