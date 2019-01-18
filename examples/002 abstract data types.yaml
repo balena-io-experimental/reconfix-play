@@ -5,6 +5,7 @@
 #   * Markdown isn't rendered
 # * (FIXED) type: port -> type: integer in JSON, not type: number
 # * (FIXED) support for file type
+# * (FIXED) support for stringlist type
 #   https://tools.ietf.org/html/draft-handrews-json-schema-validation-01#section-6.1.1
 # * and probably others, there's a lot of errors and thus I didn't mention them all here
 version: 1
