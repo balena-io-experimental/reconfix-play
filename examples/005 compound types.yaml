@@ -1,5 +1,5 @@
 # FIXME
-#
+# (FIXED) removed support for compound types from the spec and the json schema generator
 # * compound types are not supported in the JSON Schema generator
 #   * it should be `anyOf` (not `oneOf` here)
 version: 1
