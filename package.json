@@ -15,16 +15,16 @@
   },
   "author": "Robert Vojta <robert@balena.io>, Cyryl Płotnicki <cyryl@balena.io>",
   "dependencies": {
-    "@types/react": "^16.7.21",
+    "@types/react": "^16.7.22",
     "@types/react-dom": "^16.0.11",
     "awesome-typescript-loader": "^5.2.1",
-    "balena-cdsl": "^0.7.3",
+    "balena-cdsl": "^0.7.4",
     "balena-temen": "^0.2.0",
     "gh-pages": "^2.0.1",
     "ky": "^0.6.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "rendition": "^4.45.0",
+    "rendition": "^4.45.1",
     "source-map-loader": "^0.2.4"
   },
   "devDependencies": {
