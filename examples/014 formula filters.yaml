@@ -16,21 +16,21 @@ properties:
       properties:
         - lowerText:
             type: string
-            formula: input.text | lower
+            formula: input.text | LOWER
             description: >-
               Lower cased text
         - upperText:
             type: string
-            formula: input.text | upper
+            formula: input.text | UPPER
             description: >-
               Upper cased text
         - trimText:
             type: string
-            formula: input.text | trim
+            formula: input.text | TRIM
             description: >-
               Trimmed text
         - chainedFilter:
             type: string
-            formula: input.text | trim | slugify
+            formula: input.text | TRIM | SLUGIFY
             description: >-
               Trimmed & slugified text

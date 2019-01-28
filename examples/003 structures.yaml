@@ -41,7 +41,8 @@ properties:
         Be aware that `keys:type:` MUST be coercable to string, because JSON
         only supports strings as keys.
       keys:
-        type: integer
+        type: string
+        pattern: ^[0-9]+^
         title: Priority
       values:
         type: string
