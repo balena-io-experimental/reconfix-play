@@ -35,11 +35,32 @@ properties:
         - lastName:
             title: Last name
             type: string
+  - fixedObjectWithAdditionalProperties:
+      title: Person
+      properties:
+        - firstName:
+            title: First name
+            type: string
+        - lastName:
+            title: Last name
+            type: string
+      # Accept properties not specified in the schema
+      additionalProperties: true
   - dynamicObject:
       title: Rules
-      description: >-
-        Be aware that `keys:type:` MUST be coercable to string, because JSON
-        only supports strings as keys.
+      keys:
+        type: string
+        pattern: ^[0-9]+^
+        title: Priority
+      values:
+        type: string
+        title: Rule
+  - mixedObject:
+      title: Rules Set
+      properties:
+        - name:
+            type: string
+            title: Set name
       keys:
         type: string
         pattern: ^[0-9]+^
