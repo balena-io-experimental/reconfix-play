@@ -1,11 +1,11 @@
 # FIXME
 #
 # * properties.nonOrderableArray
-#   * orderable: false has no effect
+#   (FIXED) * orderable: false has no effect
 # * properties.nonAddableArray
-#   * addable: false has no effect
+#   (FIXED) * addable: false has no effect
 # * properties.nonRemovableArray
-#   * removable: false has no effect
+#   (FIXED) * removable: false has no effect
 version: 1
 title: Annotations
 properties:
