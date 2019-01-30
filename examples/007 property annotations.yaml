@@ -1,13 +1,13 @@
 # FIXME
 #
 # * properties.readOnly
-#   * readOnly: true has no effect
+#   (FIXED) * readOnly: true has no effect
 # * properties.writeOnly
-#   * to be discussed
+#   (FIXED - using both JSONSchema and UISchema here - reuses password browser field)* to be discussed
 # * properties.hidden
-#   * hidden: true has no effect
+#   (FIXED) * hidden: true has no effect
 # * properties.constValue
-#   * doesn't work as expected, it displays combo box, ...
+#   * doesn't work as expected, it displays combo box - waiting on rjsf fix then will emit `const` here
 version: 1
 title: Annotations
 properties:
