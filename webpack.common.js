@@ -15,7 +15,7 @@ module.exports = {
   entry: "./src/index.js",
   target: "web",
   resolve: {
-    extensions: [".wasm", ".js", ".json", ".jsx", ".ts", ".tsx", ".yaml"]
+    extensions: [".js", ".js", ".json", ".jsx", ".ts", ".tsx", ".yaml", ".wasm"]
   },
   module: {
     rules: [
