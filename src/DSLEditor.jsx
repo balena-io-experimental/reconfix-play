@@ -2,7 +2,7 @@ import * as React from "react";
 import { Component } from "react";
 import { Box, Flex } from "rendition";
 import Playarea from "./Playarea";
-import * as cdsl from "balena-cdsl";
+import * as jellyschema from "jellyschema";
 import Permalink from "./Permalink";
 
 function noop(_event) {
@@ -17,7 +17,7 @@ class DSLEditor extends Component {
   evaluate(value) {
     this.setState({ yaml_text: value });
     try {
-      const ui = cdsl.generate_ui(value);
+      const ui = jellyschema.generateJsonAndUiSchema(value);
       this.onChange(value, ui);
     } catch (e) {
       this.onError(e);
@@ -53,7 +53,7 @@ class DSLEditor extends Component {
     const b64 = btoa(this.state.yaml_text);
     return (
       <Box>
-        <Permalink text={this.state.yaml_text}/>
+        <Permalink text={this.state.yaml_text} />
         <Flex>
           <Playarea
             placeholder="yaml"
@@ -61,7 +61,7 @@ class DSLEditor extends Component {
             value={this.state.yaml_text}
           />
           {this.state.hasError ? (
-            <Playarea value={this.state.error} onChange={e => noop(e)}/>
+            <Playarea value={this.state.error} onChange={e => noop(e)} />
           ) : null}
         </Flex>
       </Box>

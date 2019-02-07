@@ -26,12 +26,12 @@ class App extends Component {
   }
 
   onDSLChanged(text, ui) {
-    const jsonSchemaText = stringify(ui.json_schema);
-    const uiSchemaText = stringify(ui.ui_object);
+    const jsonSchemaText = stringify(ui.jsonSchema);
+    const uiSchemaText = stringify(ui.uiSchema);
     this.setState({
-      json_schema: ui.json_schema,
+      json_schema: ui.jsonSchema,
       json_schema_text: jsonSchemaText,
-      ui_object: ui.ui_object,
+      ui_object: ui.uiSchema,
       ui_object_text: uiSchemaText,
       hasError: false
     });
@@ -44,20 +44,20 @@ class App extends Component {
   render() {
     return (
       <Box>
-        <Links/>
-        <Divider/>
+        <Links />
+        <Divider />
         <DSLEditor
           onChange={(text, ui) => this.onDSLChanged(text, ui)}
           onError={error => this.onDSLError(error)}
         />
-        <Divider/>
+        <Divider />
         {!this.state.hasError ? (
           <UserUI
             jsonSchema={this.state.json_schema}
             uiSchema={this.state.ui_object}
           />
         ) : null}
-        <Divider/>
+        <Divider />
         <Box>
           {!this.state.hasError ? (
             <Box>
@@ -77,7 +77,7 @@ class App extends Component {
             </Box>
           ) : null}
         </Box>
-        <Divider/>
+        <Divider />
       </Box>
     );
   }
