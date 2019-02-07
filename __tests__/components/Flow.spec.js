@@ -1,12 +1,12 @@
 // flow of the whole playground, not using real UI components though
 // tests int this file are only temporary - they serve as a scratchpad for testing reconfix API ideas
 
-import * as cdsl from "balena-cdsl";
+import * as jellyschema from "jellyschema";
 
 // this represents all of the external balena libraries, no matter whether these are existing libraries or not
 class Reconfix {
   static getUIForYAMLDSL(dsl) {
-    return cdsl.generate_ui(dsl);
+    return jellyschema.generateJsonAndUiSchema(dsl);
   }
 
   static getListOfTargets(dsl) {
@@ -23,13 +23,13 @@ class Reconfix {
 }
 
 class PlaygroundUI {
-  static renderTextarea(data) {}
+  static renderTextarea(data) { }
 
   static renderListOfTextAreas(list) {
     // for each item in list -> renderTextArea(item)
   }
 
-  static renderForm(jsonSchema, uiSchema) {}
+  static renderForm(jsonSchema, uiSchema) { }
 
   static dsl() {
     return DSL;
@@ -60,8 +60,8 @@ it("flows synchronously", () => {
 
   const dslInputUI = PlaygroundUI.renderTextarea(DSL);
   const ui = Reconfix.getUIForYAMLDSL(DSL);
-  const jsonSchema = ui.json_schema;
-  const uiSchema = ui.ui_object;
+  const jsonSchema = ui.jsonSchema;
+  const uiSchema = ui.uiObject;
 
   const formUI = PlaygroundUI.renderForm(jsonSchema, uiSchema); //with unevaluated expressions
   const formData = PlaygroundUI.formData(formUI); //with unevaluated expressions
@@ -87,9 +87,9 @@ it("validates", () => {
 
     const dslInputUI = PlaygroundUI.renderTextarea(DSL);
     const ui = Reconfix.getUIForYAMLDSL(DSL);
-    const jsonSchema = ui.json_schema;
-    const uiSchema = ui.ui_object;
-  } catch (dslValidationError) {}
+    const jsonSchema = ui.jsonSchema;
+    const uiSchema = ui.uiObject;
+  } catch (dslValidationError) { }
 
   const formUI = PlaygroundUI.renderForm(jsonSchema, uiSchema); //with unevaluated expressions
   // does its own validation internally, won't proceed further if user data invalid
@@ -99,7 +99,7 @@ it("validates", () => {
     const evaluatedFormData = Reconfix.evaluateFormData(formData, DSL);
     const dryJson = evaluatedFormData;
   }
-  catch(evaluationError) {
+  catch (evaluationError) {
     // e.g. the expression not make sense - where to show this ? - need to integrate
   }
 
@@ -112,7 +112,7 @@ it("validates", () => {
 
 const DSL = `
 version: 1
-properties: 
+properties:
  - a:
     type: string
 `;
