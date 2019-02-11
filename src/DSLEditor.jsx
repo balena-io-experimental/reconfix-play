@@ -50,10 +50,9 @@ class DSLEditor extends Component {
   }
 
   render() {
-    const b64 = btoa(this.state.yaml_text);
     return (
       <Box>
-        <Permalink text={this.state.yaml_text} />
+        <Permalink text={this.state.yaml_text}/>
         <Flex>
           <Playarea
             placeholder="yaml"
@@ -61,7 +60,7 @@ class DSLEditor extends Component {
             value={this.state.yaml_text}
           />
           {this.state.hasError ? (
-            <Playarea value={this.state.error} onChange={e => noop(e)} />
+            <Playarea value={this.state.error} onChange={e => noop(e)}/>
           ) : null}
         </Flex>
       </Box>

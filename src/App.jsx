@@ -46,19 +46,19 @@ class App extends Component {
   render() {
     return (
       <Box>
-        <Links />
-        <Divider />
+        <Links/>
+        <Divider/>
         <DSLEditor
           onChange={(text, ui) => this.onDSLChanged(text, ui)}
           onError={error => this.onDSLError(error)}
         />
-        <Divider />
+        <Divider/>
         {!this.state.hasError ? (
           <UserUI
             yamlText={this.state.yamlText}
           />
         ) : null}
-        <Divider />
+        <Divider/>
         <Box>
           {!this.state.hasError ? (
             <Box>
@@ -78,7 +78,7 @@ class App extends Component {
             </Box>
           ) : null}
         </Box>
-        <Divider />
+        <Divider/>
       </Box>
     );
   }
