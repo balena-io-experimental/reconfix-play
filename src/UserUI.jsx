@@ -41,10 +41,12 @@ class UserUI extends Component {
         <Box>
           <Heading.h4 mb={3}>Rendered form</Heading.h4>
           {this.props.yamlText ? (
-            <JellyForm
-              schema={this.props.yamlText}
-              onFormChange={event => this.renderFormData(event)}
-            />
+            <Flex>
+              <JellyForm
+                schema={this.props.yamlText}
+                onFormChange={event => this.renderFormData(event)}
+              />
+            </Flex>
           ) : null}
         </Box>
         {this.state.formData ? (
