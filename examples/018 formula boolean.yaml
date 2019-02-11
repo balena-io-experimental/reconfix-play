@@ -1,7 +1,3 @@
-# FIXME
-#
-# * formula has no effect
-# * isCyrylOrLucian.description isn't rendered
 version: 1
 title: Formula boolean
 properties:
