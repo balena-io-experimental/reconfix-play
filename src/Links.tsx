@@ -70,6 +70,14 @@ class Links extends Component<any, LinksState> {
         >
           JSON Schema extensions
         </a>
+        &nbsp;|&nbsp;
+        <a
+          href={
+            "https://docs.google.com/document/d/1GzzTOEkxIg8mis7c6WU41AU7AIYLYhImgJ_5383Kknc/edit"
+          }
+        >
+          Known UI issues
+        </a>
         <Divider/>
         <ExampleLinks examples={this.state.allExamples}/>
       </Box>
