@@ -13,6 +13,7 @@ class App extends Component {
     super();
 
     this.state = {
+      yamlText: "",
       json_schema_text: "",
       json_schema: {},
       ui_object_text: "",
@@ -29,6 +30,7 @@ class App extends Component {
     const jsonSchemaText = stringify(ui.jsonSchema);
     const uiSchemaText = stringify(ui.uiSchema);
     this.setState({
+      yamlText: text,
       json_schema: ui.jsonSchema,
       json_schema_text: jsonSchemaText,
       ui_object: ui.uiSchema,
@@ -53,8 +55,7 @@ class App extends Component {
         <Divider />
         {!this.state.hasError ? (
           <UserUI
-            jsonSchema={this.state.json_schema}
-            uiSchema={this.state.ui_object}
+            yamlText={this.state.yamlText}
           />
         ) : null}
         <Divider />

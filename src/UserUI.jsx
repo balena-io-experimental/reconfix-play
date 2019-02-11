@@ -2,9 +2,12 @@ import * as React from "react";
 import { Component } from "react";
 import { Box, Flex, Heading } from "rendition";
 import Playarea from "./Playarea";
-import * as temen from "balena-temen";
 
-import { Form } from "rendition/dist/unstable";
+import async from "./Async";
+
+const JellyForm = async(() => {
+  return import("rendition/dist/unstable/components/JellyForm");
+});
 
 const stringify = value => JSON.stringify(value, null, 2);
 
@@ -19,9 +22,7 @@ class UserUI extends Component {
 
   renderFormData(event) {
     try {
-      const data = event.formData;
-      const evaluated = temen.evaluate(data);
-      this.setState({ formData: stringify(evaluated) });
+      this.setState({ formData: stringify(event.formData) });
     } catch (e) {
       console.log(e);
     }
@@ -32,14 +33,12 @@ class UserUI extends Component {
       <Box>
         <Box>
           <Heading.h4 mb={3}>Rendered form</Heading.h4>
-          <Flex>
-            <Form
-              schema={this.props.jsonSchema}
-              uiSchema={this.props.uiSchema}
+          {this.props.yamlText? (
+            <JellyForm
+              schema={this.props.yamlText}
               onFormChange={event => this.renderFormData(event)}
-              hideSubmitButton={false}
             />
-          </Flex>
+          ) : null}
         </Box>
         {this.state.formData ? (
           <Box>
