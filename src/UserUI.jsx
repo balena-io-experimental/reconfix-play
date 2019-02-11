@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Component } from "react";
-import { Box, Flex, Heading } from "rendition";
+import { Box, Divider, Flex, Heading } from "rendition";
 import Playarea from "./Playarea";
 import async from "./Async";
 import * as jelly from "jellyschema";
@@ -38,26 +38,31 @@ class UserUI extends Component {
   render() {
     return (
       <Box>
-        <Box>
-          <Heading.h4 mb={3}>Rendered form</Heading.h4>
+        <Heading.h4>Rendered form</Heading.h4>
+        <Flex>
           {this.props.yamlText ? (
-            <Flex>
-              <JellyForm
-                schema={this.props.yamlText}
-                onFormChange={event => this.renderFormData(event)}
-              />
+            <Flex width={1/2}>
+                <JellyForm
+                  width={1/2}
+                  schema={this.props.yamlText}
+                  onFormChange={event => this.renderFormData(event)}
+                />
             </Flex>
           ) : null}
-        </Box>
-        {this.state.formData ? (
+          {this.state.formData ? (
+                <Playarea
+                  width={1/2}
+                  placeholder={"form data"}
+                  value={this.state.formData}
+                  onChange={e => this.noop(e)}
+                />
+          ) : null}
+        </Flex>
+        <Divider/>
+        {this.state.errors ? (
           <Box>
-            <Heading.h4>Form data (dry json)</Heading.h4>
+            <Heading.h4>Form data validation errors</Heading.h4>
             <Flex>
-              <Playarea
-                placeholder={"form data"}
-                value={this.state.formData}
-                onChange={e => this.noop(e)}
-              />
               <Playarea placeholder={"data validation errors"} value={this.state.errors} onChange={e => noop(e)}/>
             </Flex>
           </Box>
