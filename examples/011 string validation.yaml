@@ -1,6 +1,3 @@
-# FIXME
-#
-# * minLength, maxLength, pattern has no effect
 version: 1
 title: String validation
 properties:

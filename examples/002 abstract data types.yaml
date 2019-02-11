@@ -1,14 +1,3 @@
-# FIXME
-#
-# * most of these types don't work (FIXED - all types from balenaOS schema should be emitted by CDSL now, still problems with rendering for some)
-# * description, help and warning keywords should support Markdown & plain text rendering
-#   * Markdown isn't rendered
-# * (FIXED) type: port -> type: integer in JSON, not type: number
-# * (FIXED) support for file type
-# * (FIXED) support for stringlist type
-# * (FIXED) added *address types
-#   https://tools.ietf.org/html/draft-handrews-json-schema-validation-01#section-6.1.1
-# * and probably others, there's a lot of errors and thus I didn't mention them all here
 version: 1
 title: Abstract data types
 properties:

@@ -1,9 +1,3 @@
-# FIXME
-#
-# * (FIXED partially - all JSONSchema seems to be emitted, but not all rendered e.g. warning ?)
-#   annotations are not rendered for the root object
-#
-# * description & help doesn't support Markdown
 version: 1
 title: Annotations
 description: >-

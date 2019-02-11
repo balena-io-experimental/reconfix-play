@@ -1,11 +1,3 @@
-# FIXME
-#
-# * properties.arrayOfStrings
-#   * allows to add empty items (= nulll), validator is happy
-# * properties.arrayOfMixedItems
-#   * doesn't work -> oneOf
-# * properties.dynamicObject doesn't work
-#   * JSON Schema patternProperties & friends
 version: 1
 title: Structures
 properties:

@@ -1,7 +1,3 @@
-# FIXME
-#
-# * min, max, exclusiveMin, exclusiveMax, multipleOf has no effect
-# * why type: number has an up/down arrows in the textfield and type: integer hasn't them?
 version: 1
 title: Number validation
 properties:
