@@ -42,7 +42,7 @@ properties:
       title: Rules
       keys:
         type: string
-        pattern: ^[0-9]+^
+        pattern: ^[0-9]+$
         title: Priority
       values:
         type: string
@@ -55,7 +55,7 @@ properties:
             title: Set name
       keys:
         type: string
-        pattern: ^[0-9]+^
+        pattern: ^[0-9]+$
         title: Priority
       values:
         type: string
