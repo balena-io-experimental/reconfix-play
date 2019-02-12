@@ -19,11 +19,11 @@
     "@types/react-dom": "^16.8.0",
     "awesome-typescript-loader": "^5.2.1",
     "gh-pages": "^2.0.1",
-    "jellyschema": "^0.11.2",
+    "jellyschema": "^0.11.3",
     "ky": "^0.6.0",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
-    "rendition": "^4.49.1",
+    "rendition": "^4.49.4",
     "source-map-loader": "^0.2.4"
   },
   "devDependencies": {
