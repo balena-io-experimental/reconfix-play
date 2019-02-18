@@ -26,7 +26,7 @@
     "react": "^16.8.1",
     "react-ace": "^6.4.0",
     "react-dom": "^16.8.1",
-    "rendition": "^4.50.2",
+    "rendition": "^4.50.4",
     "source-map-loader": "^0.2.4"
   },
   "devDependencies": {
