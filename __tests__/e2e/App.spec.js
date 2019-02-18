@@ -11,7 +11,7 @@ it("fill in yaml from url", async () => {
 
   await page.goto(
     // FIXME: use example files to load up examples and test through them instead
-    "http://localhost:8080/?yaml=dmVyc2lvbjogMQpwcm9wZXJ0aWVzOgogLSBhIHN0cmluZzoKICAgIHR5cGU6IHN0cmluZwo%3D",
+    "http://localhost:8080/?yaml=eJwrSy0qzszPs1Iw5Cooyi9ILSrJTC224lJQ0FVIVCguKcrMSwfxQKCksiDVCirGBQAIqxGT",
     { waitUntil: "networkidle0" }
   );
   await page.waitForSelector('#ace_editor');

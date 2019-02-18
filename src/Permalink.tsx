@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Component } from "react";
 import { DefaultProps, Link } from "rendition";
-
+import * as pako from "pako";
 const propertyName = "yaml";
 
 interface PermalinkProps extends DefaultProps {
@@ -14,7 +14,10 @@ class Permalink extends Component<PermalinkProps, any> {
   }
 
   static encode(text: string): string {
-    return encodeURIComponent(btoa(text));
+    let deflated = pako.deflate(text, { to: 'string'});
+    let base64encoded = btoa(deflated);
+    let uriEncoded = encodeURIComponent(base64encoded);
+    return uriEncoded;
   }
 
   static decode(): string {
@@ -22,7 +25,10 @@ class Permalink extends Component<PermalinkProps, any> {
       const params = new URLSearchParams(window.location.search);
       const encoded = params.get(propertyName);
       if (params && encoded) {
-        return atob(decodeURIComponent(encoded));
+        let base64encoded = decodeURIComponent(encoded);
+        let deflated = atob(base64encoded);
+        let inflated = pako.inflate(deflated, {to: 'string'});
+        return inflated;
       }
       return null;
     } catch (e) {
