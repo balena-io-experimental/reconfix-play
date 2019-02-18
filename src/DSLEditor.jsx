@@ -62,7 +62,7 @@ class DSLEditor extends Component {
             mode="yaml"
             theme="github"
             onChange={this.onChange}
-            name="UNIQUE_ID_OF_DIV"
+            name="ace_editor"
             enableBasicAutocompletion={true}
             enableLiveAutocompletion={true}
             tabSize={2}
