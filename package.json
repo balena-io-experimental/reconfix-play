@@ -39,7 +39,7 @@
     "@types/webpack-env": "^1.13.7",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
-    "babel-jest": "^23.6.0",
+    "babel-jest": "^24.1.0",
     "babel-loader": "^8.0.5",
     "css-loader": "^1.0.0",
     "enzyme": "^3.8.0",
@@ -60,7 +60,7 @@
     "git-revision-webpack-plugin": "^3.0.3",
     "html-webpack-plugin": "^3.2.0",
     "interpolate-html-plugin": "^3.0.0",
-    "jest": "^23.6.0",
+    "jest": "^24.1.0",
     "jest-enzyme": "^7.0.1",
     "prettier": "1.15.3",
     "puppeteer": "^1.12.2",
@@ -92,7 +92,7 @@
     ]
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
+    "setupFilesAfterEnv":  ["./node_modules/jest-enzyme/lib/index.js"],
     "setupFiles": [
       "./test-setup.js"
     ],
