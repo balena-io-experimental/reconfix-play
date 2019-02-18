@@ -92,7 +92,9 @@
     ]
   },
   "jest": {
-    "setupFilesAfterEnv":  ["./node_modules/jest-enzyme/lib/index.js"],
+    "setupFilesAfterEnv": [
+      "./node_modules/jest-enzyme/lib/index.js"
+    ],
     "setupFiles": [
       "./test-setup.js"
     ],
