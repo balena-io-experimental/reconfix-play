@@ -3,7 +3,6 @@ import { Component } from "react";
 import { DropDownButton } from "rendition";
 import Permalink from "./Permalink";
 
-
 interface IHash {
   [key: string]: string
 }
@@ -12,7 +11,7 @@ interface ExampleLinksProps {
   examples: IHash
 }
 
-class ExampleLinks extends Component<ExampleLinksProps, any> {
+class ExampleLinksDropDown extends Component<ExampleLinksProps, any> {
 
   constructor(props: ExampleLinksProps) {
     super(props);
@@ -40,4 +39,4 @@ class ExampleLinks extends Component<ExampleLinksProps, any> {
   }
 }
 
-export default ExampleLinks;
+export default ExampleLinksDropDown;

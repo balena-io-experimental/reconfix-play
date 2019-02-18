@@ -66,6 +66,7 @@ class DSLEditor extends Component {
             enableBasicAutocompletion={true}
             enableLiveAutocompletion={true}
             tabSize={2}
+            maxLines={20}
             value={this.state.yamlText}
           />,
           {this.state.hasError ? (

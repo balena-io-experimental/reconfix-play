@@ -5,6 +5,7 @@ import Links from "./Links.tsx";
 import Playarea from "./Playarea.tsx";
 import DSLEditor from "./DSLEditor.jsx";
 import UserUI from "./UserUI.jsx";
+import AllExampleLinks from "./AllExampleLinks";
 
 const stringify = value => JSON.stringify(value, null, 2);
 
@@ -52,6 +53,7 @@ class App extends Component {
           onChange={(text, ui) => this.onDSLChanged(text, ui)}
           onError={error => this.onDSLError(error)}
         />
+        <AllExampleLinks/>
         <Divider/>
         {!this.state.hasError ? (
           <UserUI
