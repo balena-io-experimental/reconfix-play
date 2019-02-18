@@ -5,29 +5,32 @@ import Playarea from "./Playarea";
 import * as jellyschema from "jellyschema";
 import Permalink from "./Permalink";
 
+import brace from 'brace';
+import AceEditor from 'react-ace';
+
+import 'brace/mode/yaml';
+import 'brace/theme/github';
+
 function noop(_event) {
 }
 
 class DSLEditor extends Component {
   constructor(props) {
     super(props);
-    this.state = { yaml_text: "", hasError: false, error: null, form_ui: null };
+    this.state = { yamlText: "", hasError: false, error: null, formUI: null };
+    this.onChange = this.onChange.bind(this);
   }
 
-  evaluate(value) {
-    this.setState({ yaml_text: value });
+  onChange(value) {
+    this.setState({ yamlText: value });
     try {
       const ui = jellyschema.generateJsonAndUiSchema(value);
-      this.onChange(value, ui);
+      this.setState({formUI: ui, hasError: false });
+      if (this.props.onChange) {
+        this.props.onChange(value, ui);
+      }
     } catch (e) {
       this.onError(e);
-    }
-  }
-
-  onChange(yamlText, ui) {
-    this.setState({ hasError: false, form_ui: ui });
-    if (this.props.onChange) {
-      this.props.onChange(yamlText, ui);
     }
   }
 
@@ -45,20 +48,26 @@ class DSLEditor extends Component {
   setDataFromUrl() {
     const text = Permalink.decode();
     if (text) {
-      this.evaluate(text);
+      this.onChange(text);
     }
   }
 
   render() {
     return (
       <Box>
-        <Permalink text={this.state.yaml_text}/>
+        <Permalink text={this.state.yamlText}/>
         <Flex>
-          <Playarea
-            placeholder="yaml"
-            onChange={event => this.evaluate(event.target.value)}
-            value={this.state.yaml_text}
-          />
+          <AceEditor
+            width={"100%"}
+            mode="yaml"
+            theme="github"
+            onChange={this.onChange}
+            name="UNIQUE_ID_OF_DIV"
+            enableBasicAutocompletion={true}
+            enableLiveAutocompletion={true}
+            tabSize={2}
+            value={this.state.yamlText}
+          />,
           {this.state.hasError ? (
             <Playarea value={this.state.error} onChange={e => noop(e)}/>
           ) : null}
