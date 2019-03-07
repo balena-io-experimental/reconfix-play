@@ -16,7 +16,7 @@
   "author": "Robert Vojta <robert@balena.io>, Cyryl Płotnicki <cyryl@balena.io>",
   "dependencies": {
     "@types/pako": "^1.0.0",
-    "@types/react": "^16.8.6",
+    "@types/react": "^16.8.7",
     "@types/react-dom": "^16.8.0",
     "awesome-typescript-loader": "^5.2.1",
     "gh-pages": "^2.0.1",
