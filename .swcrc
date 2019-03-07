@@ -1,5 +1,6 @@
 {
   "jsc": {
+    "target": "es2015",
     "parser": {
       "dynamicImport": true,
       "classProperty": true,
