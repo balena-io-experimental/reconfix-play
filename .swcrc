@@ -6,6 +6,7 @@
       "functionBind": true,
       "syntax": "ecmascript",
       "jsx": true
-    }
+    },
+    "target": "es2015"
   }
 }
