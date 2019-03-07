@@ -30,19 +30,11 @@
     "source-map-loader": "^0.2.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.3.4",
-    "@babel/plugin-proposal-class-properties": "^7.3.4",
-    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-    "@babel/preset-env": "^7.3.4",
-    "@babel/preset-react": "^7.0.0",
+    "@swc/core": "^1.0.35",
     "@types/enzyme": "^3.9.0",
     "@types/jest": "^23.3.14",
     "@types/webpack": "^4.4.25",
     "@types/webpack-env": "^1.13.8",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-eslint": "^10.0.1",
-    "babel-jest": "^24.1.0",
-    "babel-loader": "^8.0.5",
     "css-loader": "^1.0.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.10.0",
@@ -50,7 +42,6 @@
     "eslint-config-prettier": "^3.5.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-config-standard-react": "^7.0.2",
-    "eslint-plugin-babel": "^5.3.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jest": "^22.2.2",
     "eslint-plugin-jsx-a11y": "^6.2.1",
@@ -70,6 +61,7 @@
     "regenerator-runtime": "^0.13.1",
     "start-server-and-test": "^1.7.11",
     "style-loader": "^0.23.0",
+    "swc-loader": "^0.1.4",
     "ts-jest": "^23.10.5",
     "ts-loader": "^5.3.3",
     "typescript": "^3.3.3333",
@@ -77,21 +69,6 @@
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.2.1",
     "webpack-merge": "^4.2.1"
-  },
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "targets": "last 1 version, > 1%, maintained node versions, not dead"
-        }
-      ],
-      "@babel/preset-react"
-    ],
-    "plugins": [
-      "@babel/plugin-syntax-dynamic-import",
-      "@babel/plugin-proposal-class-properties"
-    ]
   },
   "jest": {
     "setupFilesAfterEnv": [

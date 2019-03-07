@@ -1,0 +1,11 @@
+{
+  "jsc": {
+    "parser": {
+      "dynamicImport": true,
+      "classProperty": true,
+      "functionBind": true,
+      "syntax": "ecmascript",
+      "jsx": true
+    }
+  }
+}
