@@ -14,7 +14,7 @@ jobs:
             npm install
             npm run lint
             npm run test
-            npm run test-e2e
+            npm run test:e2e
 
   deploy:
     docker:
@@ -29,7 +29,7 @@ jobs:
             npm install
             npm run lint
             npm run test
-            npm run test-e2e
+            npm run test:e2e
             git config --global user.email $GH_EMAIL
             git config --global user.name  $GH_NAME
             npm run deploy

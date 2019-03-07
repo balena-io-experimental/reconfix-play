@@ -11,7 +11,7 @@
     "test": "jest --silent --verbose __tests__/components/",
     "e2e-no-server": "jest --verbose --detectOpenHandles __tests__/e2e/",
     "watch": "jest --silent --verbose --watchAll __tests__/components/",
-    "test-e2e": "start-server-and-test start http-get://localhost:8080 e2e-no-server"
+    "test:e2e": "start-server-and-test start http-get://localhost:8080 e2e-no-server"
   },
   "author": "Robert Vojta <robert@balena.io>, Cyryl Płotnicki <cyryl@balena.io>",
   "dependencies": {
@@ -30,7 +30,6 @@
     "source-map-loader": "^0.2.4"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
     "@babel/plugin-proposal-class-properties": "^7.3.4",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
